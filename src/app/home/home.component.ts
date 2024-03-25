@@ -3,6 +3,7 @@ import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'home',
@@ -18,6 +19,8 @@ import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.c
 export class HomeComponent {
 
   coursesService = inject(CoursesService);
+
+  private dialog = inject(MatDialog);
 
   #courses = signal<Course[]>([]);
 
