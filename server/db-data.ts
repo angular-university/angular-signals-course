@@ -3,7 +3,7 @@ export const COURSES: any = {
 
   18: {
     id: 18,
-    description: 'Modern Angular With Signals',
+    title: 'Modern Angular With Signals',
     longDescription: 'Learn Angular Signals in depth, and use them to build a modern application with async/await, standalone components and RxJs interoperability.',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
@@ -16,7 +16,7 @@ export const COURSES: any = {
 
   17: {
     id: 17,
-    description: 'Reactive Angular Course',
+    title: 'Reactive Angular Course',
     longDescription: 'How to build Angular applications in Reactive style using plain RxJs - Patterns and Anti-Patterns',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/reactive-angular-course.jpg',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
@@ -28,7 +28,7 @@ export const COURSES: any = {
   },
   3: {
     id: 3,
-    description: 'RxJs In Practice Course',
+    title: 'RxJs In Practice Course',
     longDescription: 'Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
@@ -41,7 +41,7 @@ export const COURSES: any = {
 
   4: {
     id: 4,
-    description: 'NgRx (with NgRx Data) - The Complete Guide',
+    title: 'NgRx (with NgRx Data) - The Complete Guide',
     longDescription: 'Learn the modern Ngrx Ecosystem, including NgRx Data, Store, Effects, Router Store, Ngrx Entity, and Dev Tools.',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/ngrx-v2.png',
     category: 'BEGINNER',
@@ -55,7 +55,7 @@ export const COURSES: any = {
 
   2: {
     id: 2,
-    description: 'Angular Core Deep Dive',
+    title: 'Angular Core Deep Dive',
     longDescription: 'A detailed walk-through of the most important part of Angular - the Core and Common modules',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
     lessonsCount: 10,
@@ -68,7 +68,7 @@ export const COURSES: any = {
 
   5: {
     id: 5,
-    description: 'Angular for Beginners',
+    title: 'Angular for Beginners',
     longDescription: 'Establish a solid layer of fundamentals, learn what\'s under the hood of Angular',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
@@ -81,7 +81,7 @@ export const COURSES: any = {
 
   12: {
     id: 12,
-    description: 'Angular Testing Course',
+    title: 'Angular Testing Course',
     longDescription: 'In-depth guide to Unit Testing and E2E Testing of Angular Applications',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-testing-small.png',
     category: 'BEGINNER',
@@ -95,7 +95,7 @@ export const COURSES: any = {
 
   1: {
     id: 1,
-    description: 'Serverless Angular with Firebase Course',
+    title: 'Serverless Angular with Firebase Course',
     longDescription: 'Serveless Angular with Firestore, Firebase Storage & Hosting, Firebase Cloud Functions & AngularFire',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/serverless-angular-small.png',
     lessonsCount: 10,
@@ -107,7 +107,7 @@ export const COURSES: any = {
 
   16: {
     id: 16,
-    description: 'Stripe Payments In Practice',
+    title: 'Stripe Payments In Practice',
     longDescription: 'Build your own ecommerce store & membership website with Firebase, Stripe and Express',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/stripe-course.jpg',
     lessonsCount: 10,
@@ -120,7 +120,7 @@ export const COURSES: any = {
 
   14: {
     id: 14,
-    description: 'NestJs In Practice (with MongoDB)',
+    title: 'NestJs In Practice (with MongoDB)',
     longDescription: 'Build a modern REST backend using Typescript, MongoDB and the familiar Angular API.',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/nestjs-v2.png',
     category: 'BEGINNER',
@@ -134,7 +134,7 @@ export const COURSES: any = {
 
   6: {
     id: 6,
-    description: 'Angular Security Course - Web Security Fundamentals',
+    title: 'Angular Security Course - Web Security Fundamentals',
     longDescription: 'Learn Web Security Fundamentals and apply them to defend an Angular / Node Application from multiple types of attacks.',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png',
     courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/lock-v2.png',
@@ -147,7 +147,7 @@ export const COURSES: any = {
 
   7: {
     id: 7,
-    description: 'Angular PWA - Progressive Web Apps Course',
+    title: 'Angular PWA - Progressive Web Apps Course',
     longDescription: 'Learn Angular Progressive Web Applications, build the future of the Web Today.',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png',
     courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/alien.png',
@@ -160,7 +160,7 @@ export const COURSES: any = {
 
   8: {
     id: 8,
-    description: 'Angular Advanced Library Laboratory: Build Your Own Library',
+    title: 'Angular Advanced Library Laboratory: Build Your Own Library',
     longDescription: 'Learn Advanced Angular functionality typically used in Library Development. Advanced Components, Directives, Testing, Npm',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/advanced_angular-small-v3.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular-advanced-lesson-icon.png',
@@ -172,7 +172,7 @@ export const COURSES: any = {
 
   9: {
     id: 9,
-    description: 'The Complete Typescript Course',
+    title: 'The Complete Typescript Course',
     longDescription: 'Complete Guide to Typescript From Scratch: Learn the language in-depth and use it to build a Node REST API.',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-lesson.png',
@@ -184,7 +184,7 @@ export const COURSES: any = {
 
   11: {
     id: 11,
-    description: 'Angular Material Course',
+    title: 'Angular Material Course',
     longDescription: 'Build Applications with the official Angular Widget Library',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png',
     category: 'BEGINNER',
@@ -417,7 +417,7 @@ export const LESSONS = {
 
   30: {
     id: 30,
-    description: 'Development Environment Setup',
+    title: 'Development Environment Setup',
     'duration': '5:38',
     'seqNo': 1,
     courseId: 1
@@ -425,7 +425,7 @@ export const LESSONS = {
 
   31: {
     id: 31,
-    description: 'Introduction to the Firebase Ecosystem',
+    title: 'Introduction to the Firebase Ecosystem',
     'duration': '5:12',
     'seqNo': 2,
     courseId: 1
@@ -433,7 +433,7 @@ export const LESSONS = {
 
   32: {
     id: 32,
-    description: 'Importing Data into Firestore',
+    title: 'Importing Data into Firestore',
     'duration': '4:07',
     'seqNo': 3,
     courseId: 1
@@ -441,7 +441,7 @@ export const LESSONS = {
 
   33: {
     id: 33,
-    description: 'Firestore Documents in Detail',
+    title: 'Firestore Documents in Detail',
     'duration': '7:32',
     'seqNo': 4,
     courseId: 1
@@ -449,7 +449,7 @@ export const LESSONS = {
 
   34: {
     id: 34,
-    description: 'Firestore Collections in Detail',
+    title: 'Firestore Collections in Detail',
     'duration': '6:28',
     'seqNo': 5,
     courseId: 1
@@ -457,7 +457,7 @@ export const LESSONS = {
 
   35: {
     id: 35,
-    description: 'Firestore Unique Identifiers',
+    title: 'Firestore Unique Identifiers',
     'duration': '4:38',
     'seqNo': 6,
     courseId: 1
@@ -465,7 +465,7 @@ export const LESSONS = {
 
   36: {
     id: 36,
-    description: 'Querying Firestore Collections',
+    title: 'Querying Firestore Collections',
     'duration': '7:54',
     'seqNo': 7,
     courseId: 1
@@ -473,7 +473,7 @@ export const LESSONS = {
 
   37: {
     id: 37,
-    description: 'Firebase Security Rules In Detail',
+    title: 'Firebase Security Rules In Detail',
     'duration': '5:31',
     'seqNo': 8,
     courseId: 1
@@ -481,7 +481,7 @@ export const LESSONS = {
 
   38: {
     id: 38,
-    description: 'Firebase Cloud Functions In Detail',
+    title: 'Firebase Cloud Functions In Detail',
     'duration': '8:19',
     'seqNo': 9,
     courseId: 1
@@ -489,7 +489,7 @@ export const LESSONS = {
 
   39: {
     id: 39,
-    description: 'Firebase Storage In Detail',
+    title: 'Firebase Storage In Detail',
     'duration': '7:05',
     'seqNo': 10,
     courseId: 1
@@ -500,7 +500,7 @@ export const LESSONS = {
 
   40: {
     id: 40,
-    description: 'Angular Testing Course - Helicopter View',
+    title: 'Angular Testing Course - Helicopter View',
     'duration': '5:38',
     'seqNo': 1,
     courseId: 12
@@ -508,7 +508,7 @@ export const LESSONS = {
 
   41: {
     id: 41,
-    description: 'Setting Up the Development Environment',
+    title: 'Setting Up the Development Environment',
     'duration': '5:12',
     'seqNo': 2,
     courseId: 12
@@ -516,7 +516,7 @@ export const LESSONS = {
 
   42: {
     id: 42,
-    description: 'Introduction to Jasmine, Spies and specs',
+    title: 'Introduction to Jasmine, Spies and specs',
     'duration': '4:07',
     'seqNo': 3,
     courseId: 12
@@ -524,7 +524,7 @@ export const LESSONS = {
 
   43: {
     id: 43,
-    description: 'Introduction to Service Testing',
+    title: 'Introduction to Service Testing',
     'duration': '7:32',
     'seqNo': 4,
     courseId: 12
@@ -532,7 +532,7 @@ export const LESSONS = {
 
   44: {
     id: 44,
-    description: 'Settting up the Angular TestBed',
+    title: 'Settting up the Angular TestBed',
     'duration': '6:28',
     'seqNo': 5,
     courseId: 12
@@ -540,7 +540,7 @@ export const LESSONS = {
 
   45: {
     id: 45,
-    description: 'Mocking Angular HTTP requests',
+    title: 'Mocking Angular HTTP requests',
     'duration': '4:38',
     'seqNo': 6,
     courseId: 12
@@ -548,7 +548,7 @@ export const LESSONS = {
 
   46: {
     id: 46,
-    description: 'Simulating Failing HTTP Requests',
+    title: 'Simulating Failing HTTP Requests',
     'duration': '7:54',
     'seqNo': 7,
     courseId: 12
@@ -556,7 +556,7 @@ export const LESSONS = {
 
   47: {
     id: 47,
-    description: 'Introduction to Angular Component Testing',
+    title: 'Introduction to Angular Component Testing',
     'duration': '5:31',
     'seqNo': 8,
     courseId: 12
@@ -564,7 +564,7 @@ export const LESSONS = {
 
   48: {
     id: 48,
-    description: 'Testing Angular Components without the DOM',
+    title: 'Testing Angular Components without the DOM',
     'duration': '8:19',
     'seqNo': 9,
     courseId: 12
@@ -572,7 +572,7 @@ export const LESSONS = {
 
   49: {
     id: 49,
-    description: 'Testing Angular Components with the DOM',
+    title: 'Testing Angular Components with the DOM',
     'duration': '7:05',
     'seqNo': 10,
     courseId: 12

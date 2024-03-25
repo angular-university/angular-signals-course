@@ -2,7 +2,7 @@
 
 export type Course = {
   id: string;
-  description: string;
+  title: string;
   longDescription: string;
   seqNo: number;
   iconUrl: string;

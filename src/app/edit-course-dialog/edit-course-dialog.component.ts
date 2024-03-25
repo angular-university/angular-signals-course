@@ -12,8 +12,6 @@ import {EditCourseDialogData} from "./edit-course-dialog.data.model";
 })
 export class EditCourseDialogComponent {
 
-  dialog = inject(MatDialog);
-
   dialogRef = inject(MatDialogRef<EditCourseDialogComponent>);
 
   data: EditCourseDialogData = inject(MAT_DIALOG_DATA);

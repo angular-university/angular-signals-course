@@ -68,7 +68,7 @@ export class HomeComponent {
 
     openEditCourseDialog(this.dialog, {
       title: "Create New Course",
-      course: this.courseAdded
+      output: this.courseAdded
     });
 
   }
