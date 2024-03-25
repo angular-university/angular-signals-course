@@ -17,11 +17,11 @@
 
     <div class="course-actions">
 
-      <button [routerLink]="['/courses', course.id]">
+      <button class="btn" [routerLink]="['/courses', course.id]">
         VIEW COURSE
       </button>
 
-      <button (click)="editCourse(course)">
+      <button class="btn" (click)="editCourse(course)">
         EDIT
       </button>
 

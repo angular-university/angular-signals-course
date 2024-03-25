@@ -1,0 +1,11 @@
+
+@mixin buttonStyles() {
+  .btn {
+    background: #1f172d;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #2086fc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

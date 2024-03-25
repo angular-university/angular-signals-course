@@ -1,4 +1,8 @@
 
+@import "../../styles/button";
+
+@include buttonStyles();
+
 .course-card {
   margin: 20px 10px;
   background: #1f172d;
@@ -30,15 +34,6 @@
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
-}
-
-button {
-  background: #1f172d;
-  color: white;
-  padding: 10px 20px;
-  border: 1px solid #2086fc;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .course-actions button {
