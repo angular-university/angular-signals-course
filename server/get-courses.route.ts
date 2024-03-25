@@ -15,7 +15,7 @@ export function getAllCourses(req: Request, res: Response) {
 
   setTimeout(() => {
 
-    res.status(200).json({payload:Object.values(COURSES)});
+    res.status(200).json({courses:Object.values(COURSES)});
 
   }, 1500);
 
