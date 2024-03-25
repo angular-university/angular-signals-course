@@ -1,5 +1,5 @@
 import {Component, inject, Inject, signal} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {Course} from "../models/course.model";
 import {EditCourseDialogData} from "./edit-course-dialog.data.model";
 
@@ -12,10 +12,14 @@ import {EditCourseDialogData} from "./edit-course-dialog.data.model";
 })
 export class EditCourseDialogComponent {
 
-  private dialog = inject(MatDialog);
+  dialog = inject(MatDialog);
 
-  constructor (@Inject(MAT_DIALOG_DATA) course:Course) {
+  dialogRef = inject(MatDialogRef<EditCourseDialogComponent>);
 
+  data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
+
+  onCancel() {
+    this.dialogRef.close();
   }
 
 }

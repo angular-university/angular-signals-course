@@ -1,6 +1,8 @@
 
 <div class="edit-course-form">
 
+  <div class="title">{{data?.title}}</div>
+
   <label>
     Course title:
     <input placeholder="Enter course title">
@@ -8,7 +10,11 @@
 
   <div class="form-actions">
 
-    <button class="btn"></button>
+    <button class="btn">Save</button>
+
+    <button class="btn" (click)="onCancel()">
+      Cancel
+    </button>
 
   </div>
 

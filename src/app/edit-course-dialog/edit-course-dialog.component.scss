@@ -3,3 +3,7 @@
 
 @include buttonStyles();
 
+.edit-course-form {
+  display: flex;
+  flex-direction: column;
+}
