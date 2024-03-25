@@ -17,7 +17,7 @@
 }
 
 .course-description {
-  padding: 20px;
+  padding: 10px;
 }
 
 .course-title {
@@ -29,6 +29,16 @@
 .course-actions {
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
+}
+
+.course-actions button {
+  background: #1f172d;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid #2086fc;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .course-actions button {
