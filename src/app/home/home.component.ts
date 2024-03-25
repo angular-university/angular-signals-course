@@ -4,6 +4,7 @@ import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.component";
 import {MatDialog} from "@angular/material/dialog";
+import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
 
 @Component({
   selector: 'home',
@@ -20,7 +21,7 @@ export class HomeComponent {
 
   coursesService = inject(CoursesService);
 
-  private dialog = inject(MatDialog);
+  dialog = inject(MatDialog);
 
   #courses = signal<Course[]>([]);
 
@@ -33,6 +34,8 @@ export class HomeComponent {
     const courses = this.#courses();
     return courses.filter(course => course.category == "ADVANCED");
   })
+
+  courseAdded = signal<Course | null>(null);
 
   constructor() {
 
@@ -58,6 +61,10 @@ export class HomeComponent {
 
 
   async onAddCourse() {
+
+    openEditCourseDialog(this.dialog, {
+      course: this.courseAdded
+    });
 
   }
 
