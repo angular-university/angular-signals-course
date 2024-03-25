@@ -2,6 +2,7 @@ import {Component, inject, Inject, signal} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {Course} from "../models/course.model";
 import {EditCourseDialogData} from "./edit-course-dialog.data.model";
+import {CoursesService} from "../services/courses.service";
 
 @Component({
   selector: 'edit-course-dialog',
@@ -14,15 +15,23 @@ export class EditCourseDialogComponent {
 
   dialogRef = inject(MatDialogRef<EditCourseDialogComponent>);
 
+  coursesService = inject(CoursesService);
+
   data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
 
   onCancel() {
     this.dialogRef.close();
   }
 
-  onSave() {
+  async onSave() {
+    if (this.data?.mode == 'create') {
 
+    }
+    else if (this.data?.mode == 'update') {
+
+    }
   }
+
 }
 
 function createDefaultDialogConfig() {
@@ -34,10 +43,7 @@ function createDefaultDialogConfig() {
 }
 
 export function openEditCourseDialog(dialog: MatDialog, data: EditCourseDialogData) {
-
   const config = createDefaultDialogConfig();
-
   config.data = data;
-
   return dialog.open(EditCourseDialogComponent, config);
 }
