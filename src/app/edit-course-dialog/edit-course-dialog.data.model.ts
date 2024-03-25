@@ -3,7 +3,8 @@ import {Signal} from "@angular/core";
 
 
 export type EditCourseDialogData = {
+  mode: 'create' | 'update';
   title:string;
   course?: Course;
-  output: Signal<Course | null>
+  courseChanged: Signal<Course | null>
 }

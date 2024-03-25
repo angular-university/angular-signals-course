@@ -67,8 +67,9 @@ export class HomeComponent {
   async onAddCourse() {
 
     openEditCourseDialog(this.dialog, {
+      mode: "create",
       title: "Create New Course",
-      output: this.courseAdded
+      courseChanged: this.courseAdded
     });
 
   }

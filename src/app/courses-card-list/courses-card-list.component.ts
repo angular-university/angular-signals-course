@@ -19,12 +19,12 @@ export class CoursesCardListComponent {
 
   courses = input.required<Course[]>();
 
-  courseUpdated = signal<Course | null>(null);
+  courseChanged = signal<Course | null>(null);
 
   constructor() {
     effect(() => {
 
-      const course = this.courseUpdated();
+      const course = this.courseChanged();
 
       if (!course) {
         console.log(`Skipping effect because course is null.`);
@@ -39,9 +39,10 @@ export class CoursesCardListComponent {
 
   editCourse(course: Course) {
     openEditCourseDialog(this.dialog, {
+      mode: "update",
       title: "Update Existing Course",
       course,
-      output: this.courseUpdated
+      courseChanged: this.courseChanged
     });
 
   }

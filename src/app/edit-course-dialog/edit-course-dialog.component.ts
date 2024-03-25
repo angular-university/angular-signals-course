@@ -20,6 +20,9 @@ export class EditCourseDialogComponent {
     this.dialogRef.close();
   }
 
+  onSave() {
+
+  }
 }
 
 function createDefaultDialogConfig() {
