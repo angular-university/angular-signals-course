@@ -1,11 +1,17 @@
 import { Component, computed, effect, inject, signal} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.component";
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   standalone: true,
-  imports: [],
+  imports: [
+    MatTabGroup,
+    MatTab,
+    CoursesCardListComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

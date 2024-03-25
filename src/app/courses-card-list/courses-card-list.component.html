@@ -1,1 +1,32 @@
-<p>courses-card-list works!</p>
+
+@for(course of courses(); track course.id) {
+
+  <div class="course-card">
+
+    <div class="card-header">
+
+      <span class="course-title">{{course.description}}</span>
+
+    </div>
+
+    <img [src]="course.iconUrl">
+
+    <div class="course-content">
+      <p>{{course.longDescription}}</p>
+    </div>
+
+    <div class="course-actions">
+
+      <button [routerLink]="['/courses', course.id]">
+        VIEW COURSE
+      </button>
+
+      <button (click)="editCourse(course)">
+        EDIT
+      </button>
+
+    </div>
+
+  </div>
+
+}
