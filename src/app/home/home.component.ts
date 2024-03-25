@@ -53,9 +53,17 @@ export class HomeComponent {
 
   async loadCourses() {
 
-    const courses = await this.coursesService.loadAllCourses();
+    try {
 
-    this.#courses.set(courses.sort(sortCoursesBySeqNo));
+      const courses = await this.coursesService.loadAllCourses();
+
+      this.#courses.set(courses.sort(sortCoursesBySeqNo));
+
+    }
+    catch(err) {
+      alert(`Error loading courses!`);
+      console.error(err);
+    }
 
   }
 
