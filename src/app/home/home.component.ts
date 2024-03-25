@@ -42,12 +42,9 @@ export class HomeComponent {
     this.loadCourses().then(() => console.log(`Courses loaded.`));
 
     effect(() => {
-
       console.log(`Beginner courses: `, this.beginnerCourses())
-
       console.log(`Advanced courses: `, this.advancedCourses())
-
-    })
+    });
 
   }
 
@@ -66,7 +63,6 @@ export class HomeComponent {
     }
 
   }
-
 
   async onAddCourse() {
 
