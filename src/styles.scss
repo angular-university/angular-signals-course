@@ -20,7 +20,7 @@ $angular-signals-course-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$angular-signals-course-theme: mat.define-light-theme((
+$angular-signals-course-theme: mat.define-dark-theme((
   color: (
     primary: $angular-signals-course-primary,
     accent: $angular-signals-course-accent,
