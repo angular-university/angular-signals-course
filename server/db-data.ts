@@ -4,7 +4,7 @@ export const COURSES: any = {
   18: {
     id: 18,
     title: 'Modern Angular With Signals',
-    longDescription: 'Learn Angular Signals in depth, and use them to build a modern application with async/await, standalone components and RxJs interoperability.',
+    longDescription: 'Learn signals in depth. Build a modern signal-based application with async/await, standalone components and optional RxJs.',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
     category: 'BEGINNER',
