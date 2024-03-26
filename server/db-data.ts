@@ -26,6 +26,19 @@ export const COURSES: any = {
     url: 'reactive-angular-course',
     price: 50
   },
+
+  2: {
+    id: 2,
+    title: 'Angular Core Deep Dive',
+    longDescription: 'A detailed walk-through of the most important part of Angular - the Core and Common modules',
+    iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-core-deep-dive-new-2.jpg',
+    lessonsCount: 10,
+    category: 'BEGINNER',
+    seqNo: 2,
+    url: 'angular-core-course',
+    price: 50
+  },
+
   3: {
     id: 3,
     title: 'RxJs In Practice Course',
@@ -34,7 +47,7 @@ export const COURSES: any = {
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
     category: 'BEGINNER',
     lessonsCount: 10,
-    seqNo: 2,
+    seqNo: 3,
     url: 'rxjs-course',
     price: 50
   },
@@ -46,24 +59,12 @@ export const COURSES: any = {
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/ngrx-v2.png',
     category: 'BEGINNER',
     lessonsCount: 10,
-    seqNo: 3,
+    seqNo: 4,
     url: 'ngrx-course',
     promo: false,
     price: 50
   },
 
-
-  2: {
-    id: 2,
-    title: 'Angular Core Deep Dive',
-    longDescription: 'A detailed walk-through of the most important part of Angular - the Core and Common modules',
-    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
-    lessonsCount: 10,
-    category: 'BEGINNER',
-    seqNo: 4,
-    url: 'angular-core-course',
-    price: 50
-  },
 
 
   5: {
