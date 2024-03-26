@@ -23,10 +23,15 @@
     </select>
   </div>
 
+  <div class="form-control">
+    <label>Course image:</label>
+    <input placeholder="Enter course title" [value]="data.course?.iconUrl" #imageUrl>
+  </div>
+
   <div class="form-actions">
 
     <button class="btn"
-            (click)="onSave(title.value, description.value, category.value)">
+            (click)="onSave(title.value, description.value, category.value, imageUrl.value)">
       Save
     </button>
 

@@ -6,5 +6,5 @@ export type EditCourseDialogData = {
   mode: 'create' | 'update';
   title:string;
   course?: Course;
-  courseChanged: WritableSignal<Course | null>
+  dialogOutput: WritableSignal<Course | null>
 }

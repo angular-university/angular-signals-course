@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, signal} from '@angular/core';
+import {Component, effect, inject, input, output, signal} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {Course} from "../models/course.model";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
@@ -19,12 +19,15 @@ export class CoursesCardListComponent {
 
   courses = input.required<Course[]>();
 
-  courseChanged = signal<Course | null>(null);
+  courseUpdated = output<Course>();
+
+  dialogOutput = signal<Course | null>(null);
 
   constructor() {
+
     effect(() => {
 
-      const course = this.courseChanged();
+      const course = this.dialogOutput();
 
       if (!course) {
         console.log(`Skipping effect because course is null.`);
@@ -33,7 +36,14 @@ export class CoursesCardListComponent {
 
       console.log(`Effect called with course: `, course);
 
-    })
+    });
+
+    effect(async () => {
+      const newCourse = this.dialogOutput();
+      if (newCourse) {
+        this.courseUpdated.emit(newCourse);
+      }
+    });
 
   }
 
@@ -42,7 +52,7 @@ export class CoursesCardListComponent {
       mode: "update",
       title: "Update Existing Course",
       course,
-      courseChanged: this.courseChanged
+      dialogOutput: this.dialogOutput
     });
 
   }

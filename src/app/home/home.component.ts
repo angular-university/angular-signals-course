@@ -35,7 +35,7 @@ export class HomeComponent {
     return courses.filter(course => course.category == "ADVANCED");
   })
 
-  courseAdded = signal<Course | null>(null);
+  addCourseDialogOutput = signal<Course | null>(null);
 
   constructor() {
 
@@ -44,6 +44,11 @@ export class HomeComponent {
     effect(() => {
       console.log(`Beginner courses: `, this.beginnerCourses())
       console.log(`Advanced courses: `, this.advancedCourses())
+    });
+
+    effect(async () => {
+      const newCourse = this.addCourseDialogOutput();
+      await this.loadCourses();
     });
 
   }
@@ -69,7 +74,7 @@ export class HomeComponent {
     openEditCourseDialog(this.dialog, {
       mode: "create",
       title: "Create New Course",
-      courseChanged: this.courseAdded
+      dialogOutput: this.addCourseDialogOutput
     });
 
   }

@@ -19,7 +19,7 @@ app.use(cors({origin: true}));
 
 app.route('/api/courses').get(getAllCourses);
 
-app.route('/api/course').post(createCourse);
+app.route('/api/courses').post(createCourse);
 
 app.route('/api/courses/:id').get(getCourseById);
 

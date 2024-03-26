@@ -10,13 +10,17 @@
 
     <mat-tab label="Beginners">
 
-      <courses-card-list [courses]="beginnerCourses()" />
+      <courses-card-list
+        [courses]="beginnerCourses()"
+        (courseUpdated)="loadCourses()" />
 
     </mat-tab>
 
     <mat-tab label="Advanced">
 
-      <courses-card-list [courses]="advancedCourses()" />
+      <courses-card-list
+        [courses]="advancedCourses()"
+        (courseUpdated)="loadCourses()"/>
 
     </mat-tab>
 
