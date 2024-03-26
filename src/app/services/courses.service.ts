@@ -63,7 +63,7 @@ export class CoursesService {
     return await response.json();
   }
 
-  async deleteCourse(courseId: number) {
+  async deleteCourse(courseId: string) {
     return await fetch(`${environment.apiRoot}/courses/${courseId}`, {
       method: 'DELETE'
     });

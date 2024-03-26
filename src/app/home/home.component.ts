@@ -79,5 +79,19 @@ export class HomeComponent {
 
   }
 
+  async onCourseDeleted(courseId:string) {
+
+    try {
+
+      await this.coursesService.deleteCourse(courseId);
+
+      await this.loadCourses();
+    }
+    catch(err) {
+      alert(`Error deleting course!`);
+      console.error(err);
+    }
+
+  }
 
 }

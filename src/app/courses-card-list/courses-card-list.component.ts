@@ -21,6 +21,8 @@ export class CoursesCardListComponent {
 
   courseUpdated = output<Course>();
 
+  courseDeleted = output<string>();
+
   dialogOutput = signal<Course | null>(null);
 
   constructor() {
@@ -57,4 +59,7 @@ export class CoursesCardListComponent {
 
   }
 
+  deleteCourse(courseId: string) {
+    this.courseDeleted.emit(courseId);
+  }
 }
