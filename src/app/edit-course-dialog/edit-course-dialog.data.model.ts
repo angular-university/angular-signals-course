@@ -1,5 +1,5 @@
 import {Course} from "../models/course.model";
-import {Signal, WritableSignal} from "@angular/core";
+import {WritableSignal} from "@angular/core";
 
 
 export type EditCourseDialogData = {
