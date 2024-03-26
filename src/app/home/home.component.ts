@@ -48,7 +48,9 @@ export class HomeComponent {
 
     effect(async () => {
       const newCourse = this.addCourseDialogOutput();
-      await this.loadCourses();
+      if (newCourse) {
+        await this.loadCourses();
+      }
     });
 
   }
