@@ -16,7 +16,7 @@
 
   <div class="form-control">
     <label>Course category:</label>
-    <select [value]="data.course?.category">
+    <select [value]="data.course?.category" #category>
       <option value="BEGINNER">Beginners</option>
       <option value="INTERMEDIATE">Intermediate</option>
       <option value="ADVANCED">Advanced</option>
@@ -25,7 +25,10 @@
 
   <div class="form-actions">
 
-    <button class="btn" (click)="onSave()">Save</button>
+    <button class="btn"
+            (click)="onSave(title.value, description.value, category.value)">
+      Save
+    </button>
 
     <button class="btn" (click)="onCancel()">
       Cancel

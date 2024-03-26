@@ -1,10 +1,10 @@
 import {Course} from "../models/course.model";
-import {Signal} from "@angular/core";
+import {Signal, WritableSignal} from "@angular/core";
 
 
 export type EditCourseDialogData = {
   mode: 'create' | 'update';
   title:string;
   course?: Course;
-  courseChanged: Signal<Course | null>
+  courseChanged: WritableSignal<Course | null>
 }

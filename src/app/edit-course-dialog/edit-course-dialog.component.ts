@@ -23,12 +23,43 @@ export class EditCourseDialogComponent {
     this.dialogRef.close();
   }
 
-  async onSave() {
+  async onSave(title: string, longDescription: string, category: string) {
     if (this.data?.mode == 'create') {
-      //TODO
+      await this.createCourse({
+        title,
+        longDescription,
+        category
+      })
+    } else if (this.data?.mode == 'update') {
+      await this.saveCourse(this.data.course!.id, {
+        title,
+        longDescription,
+        category
+      })
     }
-    else if (this.data?.mode == 'update') {
-      //TODO
+  }
+
+  async createCourse(course: Partial<Course>) {
+    try {
+      const newCourse = await this.coursesService.createCourse(course);
+      this.data.courseChanged.set(newCourse);
+      this.dialogRef.close();
+    }
+    catch (err) {
+      console.error(err);
+      alert(`Failed to create course!`);
+    }
+  }
+
+  async saveCourse(courseId: string, changes: Partial<Course>) {
+    try {
+      const course = await this.coursesService.saveCourse(courseId, changes);
+      this.data.courseChanged.set(course);
+      this.dialogRef.close();
+    }
+    catch (err) {
+      console.error(err);
+      alert(`Failed to save course!`);
     }
   }
 

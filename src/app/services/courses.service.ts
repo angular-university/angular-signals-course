@@ -17,7 +17,6 @@ export class CoursesService {
 
   }
 
-
   async loadAllCoursesAlt() {
 
     const courses$ = this.http.get<GetCoursesResponse>(`${this.env.apiRoot}/courses`);
@@ -36,6 +35,38 @@ export class CoursesService {
 
     return payload.courses;
 
+  }
+
+  async createCourse(course: Partial<Course>): Promise<Course> {
+
+    const response = await fetch(`${environment.apiRoot}/courses`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(course)
+    });
+
+    return await response.json();
+  }
+
+  async saveCourse(courseId:string, changes: Partial<Course>) {
+
+    const response = await fetch(`${environment.apiRoot}/courses/${courseId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(changes)
+    });
+
+    return await response.json();
+  }
+
+  async deleteCourse(courseId: number) {
+    return await fetch(`${environment.apiRoot}/courses/${courseId}`, {
+      method: 'DELETE'
+    });
   }
 
 
