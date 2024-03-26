@@ -19,6 +19,8 @@ export class CoursesService {
 
   async loadAllCourses() {
 
+    console.log(`Calling API to load all courses...`);
+
     const courses$ = this.http.get<GetCoursesResponse>(`${this.env.apiRoot}/courses`);
 
     const response = await firstValueFrom(courses$);

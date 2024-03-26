@@ -3,11 +3,14 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from "@angula
 import {Course} from "../models/course.model";
 import {EditCourseDialogData} from "./edit-course-dialog.data.model";
 import {CoursesService} from "../services/courses.service";
+import {LoadingIndicatorComponent} from "../loading/loading.component";
 
 @Component({
   selector: 'edit-course-dialog',
   standalone: true,
-  imports: [],
+  imports: [
+    LoadingIndicatorComponent
+  ],
   templateUrl: './edit-course-dialog.component.html',
   styleUrl: './edit-course-dialog.component.scss'
 })

@@ -10,10 +10,12 @@ export class LoadingService {
   loading = this.#loadingSignal.asReadonly();
 
   loadingOn() {
+    console.log(`Loading on`);
     this.#loadingSignal.set(true);
   }
 
   loadingOff() {
+    console.log(`Loading on`);
     this.#loadingSignal.set(false);
   }
 }
