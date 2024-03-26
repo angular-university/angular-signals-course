@@ -52,5 +52,4 @@ export class CoursesService {
     await firstValueFrom(delete$);
   }
 
-
 }
