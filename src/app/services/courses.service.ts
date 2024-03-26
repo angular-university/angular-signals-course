@@ -17,56 +17,34 @@ export class CoursesService {
 
   }
 
-  async loadAllCoursesAlt() {
+  async loadAllCourses() {
 
     const courses$ = this.http.get<GetCoursesResponse>(`${this.env.apiRoot}/courses`);
 
     const response = await firstValueFrom(courses$);
 
     return response.courses;
-
-  }
-
-  async loadAllCourses(): Promise<Course[]> {
-
-    const response = await fetch(`${environment.apiRoot}/courses`);
-
-    const payload = await response.json();
-
-    return payload.courses;
-
   }
 
   async createCourse(course: Partial<Course>): Promise<Course> {
 
-    const response = await fetch(`${environment.apiRoot}/courses`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(course)
-    });
+    const course$ = this.http.post<Course>(`${this.env.apiRoot}/courses`, course);
 
-    return await response.json();
+    return await firstValueFrom(course$);
   }
 
-  async saveCourse(courseId:string, changes: Partial<Course>) {
+  async saveCourse(courseId:string, changes: Partial<Course>): Promise<Course> {
 
-    const response = await fetch(`${environment.apiRoot}/courses/${courseId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(changes)
-    });
+    const course$ = this.http.put<Course>(`${this.env.apiRoot}/courses/${courseId}`, changes);
 
-    return await response.json();
+    return await firstValueFrom(course$);
   }
 
-  async deleteCourse(courseId: string) {
-    return await fetch(`${environment.apiRoot}/courses/${courseId}`, {
-      method: 'DELETE'
-    });
+  async deleteCourse(courseId: string): Promise<void> {
+
+    const delete$ = this.http.delete(`${this.env.apiRoot}/courses/${courseId}`);
+
+    await firstValueFrom(delete$);
   }
 
 
