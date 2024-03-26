@@ -1,0 +1,26 @@
+
+.messages-container {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.message {
+  min-width: 350px;
+  color: white;
+  background-color: #fc00ba;
+  border: 1px solid #50277c;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top:10px;
+  cursor: pointer;
+  max-height: 20px;
+}

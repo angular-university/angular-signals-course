@@ -5,6 +5,7 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.component";
 import {MatDialog} from "@angular/material/dialog";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
+import {MessagesService} from "../messages/messages.service";
 
 @Component({
   selector: 'home',
@@ -20,6 +21,8 @@ import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.com
 export class HomeComponent {
 
   coursesService = inject(CoursesService);
+
+  messagesService = inject(MessagesService);
 
   dialog = inject(MatDialog);
 
@@ -57,6 +60,9 @@ export class HomeComponent {
 
   async loadCourses() {
 
+    //TODO
+    this.messagesService.showMessage(`Error loading courses!`, 'error');
+
     try {
 
       const courses = await this.coursesService.loadAllCourses();
@@ -65,7 +71,7 @@ export class HomeComponent {
 
     }
     catch(err) {
-      alert(`Error loading courses!`);
+      this.messagesService.showMessage(`Error loading courses!`, 'error');
       console.error(err);
     }
 
