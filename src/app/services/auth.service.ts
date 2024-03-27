@@ -1,6 +1,7 @@
-import {computed, Injectable, signal} from "@angular/core";
+import {computed, inject, Injectable, signal} from "@angular/core";
 import {User} from "../models/user.model";
 import {environment} from "../../environments/environment";
+import {Router} from "@angular/router";
 
 const USER_STORAGE_KEY='user';
 
@@ -8,6 +9,8 @@ const USER_STORAGE_KEY='user';
   providedIn: 'root'
 })
 export class AuthService {
+
+  router = inject(Router);
 
   #userSignal = signal<User | null>(null);
 
@@ -50,9 +53,10 @@ export class AuthService {
     return user;
   }
 
-  logout() {
+  async logout() {
     localStorage.removeItem(USER_STORAGE_KEY);
     this.#userSignal.set(null);
+    await this.router.navigateByUrl('/login');
   }
 
 }
