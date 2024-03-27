@@ -1,0 +1,21 @@
+
+@import "../../styles/forms";
+@import "../../styles/button";
+
+@include formStyles();
+@include buttonStyles();
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 20px 20px;
+  color:white;
+  border: 1px solid #2086fc;
+  border-radius: 10px;
+}
+
+.login {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
