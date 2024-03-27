@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {MatSidenav, MatSidenavContainer} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
@@ -7,6 +7,7 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {MatIconButton} from "@angular/material/button";
 import {LoadingIndicatorComponent} from "./loading/loading.component";
 import {MessagesComponent} from "./messages/messages.component";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,12 @@ import {MessagesComponent} from "./messages/messages.component";
 })
 export class AppComponent {
 
-  logout() {
+  authService = inject(AuthService);
 
+  isLoggedIn = this.authService.isLoggedIn;
+
+  logout() {
+    this.authService.logout();
   }
 
 }

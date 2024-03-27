@@ -7,19 +7,23 @@
 
     <div class="form-control">
       <label>Email:</label>
-      <input placeholder="Enter your email">
+      <input placeholder="Enter your email" #email>
     </div>
 
     <div class="form-control">
       <label>Password:</label>
-      <input placeholder="Enter your password">
+      <input type="password" placeholder="Enter your password" #password>
     </div>
 
   </div>
 
   <div class="form-actions">
     <button class="btn" routerLink="/home">Home</button>
-    <button class="btn">Login</button>
+
+    <button class="btn" (click)="onLogin(email.value, password.value)">
+      Login
+    </button>
+
   </div>
 
 </div>
