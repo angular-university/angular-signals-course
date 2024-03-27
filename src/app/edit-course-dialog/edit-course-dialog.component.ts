@@ -4,12 +4,14 @@ import {Course} from "../models/course.model";
 import {EditCourseDialogData} from "./edit-course-dialog.data.model";
 import {CoursesService} from "../services/courses.service";
 import {LoadingIndicatorComponent} from "../loading/loading.component";
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'edit-course-dialog',
   standalone: true,
   imports: [
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './edit-course-dialog.component.html',
   styleUrl: './edit-course-dialog.component.scss'
@@ -22,18 +24,31 @@ export class EditCourseDialogComponent {
 
   data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
 
+  fb = inject(FormBuilder);
+
+  form = this.fb.group({
+    title: [''],
+    longDescription: [''],
+    category: [''],
+    iconUrl: ['']
+  });
+
   onCancel() {
     this.dialogRef.close();
   }
 
-  async onSave(title: string, longDescription: string, category: string, iconUrl: string) {
+  constructor() {
+    this.form.patchValue({
+      title: this.data.course?.title,
+      longDescription: this.data.course?.longDescription,
+      category: this.data.course?.category,
+      iconUrl: this.data.course?.iconUrl
+    });
+  }
 
-    const courseProps = {
-      title,
-      longDescription,
-      category,
-      iconUrl
-    };
+  async onSave() {
+
+    const courseProps = this.form.value as Partial<Course>;
 
     if (this.data?.mode == 'create') {
       await this.createCourse(courseProps);
