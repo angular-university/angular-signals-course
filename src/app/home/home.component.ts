@@ -60,9 +60,6 @@ export class HomeComponent {
 
   async loadCourses() {
 
-    //TODO
-    this.messagesService.showMessage(`Error loading courses!`, 'error');
-
     try {
 
       const courses = await this.coursesService.loadAllCourses();

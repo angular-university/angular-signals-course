@@ -8,14 +8,38 @@
 
 .message {
   min-width: 350px;
-  color: white;
-  background-color: #fc00ba;
-  border: 1px solid #50277c;
   padding: 20px;
   position: relative;
   border-radius: 10px;
   font-size: 16px;
 }
+
+.message.error {
+  color: white;
+  background-color: #fc00ba;
+  border: 1px solid #50277c;
+}
+
+.message.info {
+  color: white;
+  background-color: #2176f7;
+  border: 1px solid #50277c;
+}
+
+.message.warning {
+  color: black;
+  background-color: #fcec01;
+  border: 1px solid #50277c;
+}
+
+.message.success {
+  color: black;
+  background-color: #4ad700;
+  border: 1px solid #50277c;
+}
+
+
+
 
 .close {
   position: absolute;
