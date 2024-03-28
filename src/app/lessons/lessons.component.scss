@@ -9,3 +9,12 @@
   max-width: 400px;
   margin: 0 auto;
 }
+
+.search-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  margin-left: 10px;
+}

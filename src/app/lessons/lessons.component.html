@@ -3,10 +3,14 @@
 
   <h3>Search lessons</h3>
 
-  <div class="form-control">
+  <div class="form-control search-controls">
 
-    <input placeholder="Search for a lesson">
+    <input placeholder="Search for a lesson"
+           (keyup.enter)="onSearch()" #search>
 
+    <button class="btn search" (click)="onSearch()">
+      Search
+    </button>
 
   </div>
 
