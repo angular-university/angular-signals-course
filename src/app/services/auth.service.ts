@@ -1,4 +1,4 @@
-import {computed, inject, Injectable, signal} from "@angular/core";
+import {computed, effect, inject, Injectable, signal} from "@angular/core";
 import {User} from "../models/user.model";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
@@ -19,7 +19,16 @@ export class AuthService {
   isLoggedIn = computed(() => !!this.user());
 
   constructor() {
+
     this.loadUserFromStorage();
+
+    effect(() => {
+      const user = this.user();
+      if (user) {
+        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
+      }
+    })
+
   }
 
   loadUserFromStorage() {
@@ -45,8 +54,6 @@ export class AuthService {
     });
 
     const user = await response.json() as User;
-
-    localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
 
     this.#userSignal.set(user);
 
