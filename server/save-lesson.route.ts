@@ -23,7 +23,7 @@ export function saveLesson(req: Request, res: Response) {
 
     res.status(200).json(LESSONS[id]);
 
-  }, 2000);
+  }, 1500);
 
 
 
