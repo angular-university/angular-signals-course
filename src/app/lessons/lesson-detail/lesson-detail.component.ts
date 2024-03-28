@@ -1,4 +1,4 @@
-import {Component, inject, input, model, output} from '@angular/core';
+import {Component, inject, input, output} from '@angular/core';
 import {Lesson} from "../../models/lesson.model";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LessonsService} from "../../services/lessons.service";

@@ -2,7 +2,6 @@ import {Component, ElementRef, inject, signal, viewChild} from '@angular/core';
 import {LessonsService} from "../services/lessons.service";
 import {Lesson} from "../models/lesson.model";
 import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
-import {MessagesService} from "../messages/messages.service";
 
 @Component({
   selector: 'lessons',
