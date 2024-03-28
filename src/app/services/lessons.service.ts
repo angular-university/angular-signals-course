@@ -28,4 +28,11 @@ export class LessonsService {
 
     return response.lessons;
   }
+
+  saveLesson(lessonId:string, changes: Partial<Lesson>): Promise<Lesson> {
+    return firstValueFrom(this.http.put<Lesson>(
+      `${this.env.apiRoot}/lessons/${lessonId}`, changes
+    ));
+  }
+
 }

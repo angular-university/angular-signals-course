@@ -44,7 +44,8 @@
 
   @if(mode() == 'detail') {
     <lesson-detail
-      [(lesson)]="selectedLesson"
+      [lesson]="selectedLesson()"
+      (lessonUpdated)="onLessonUpdated($event)"
       (cancel)="onCancel()"/>
   }
 

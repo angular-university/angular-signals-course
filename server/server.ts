@@ -7,6 +7,7 @@ import {saveCourse} from './save-course.route';
 import {loginUser} from './login.route';
 import {createCourse} from "./create-course.route";
 import {deleteCourse} from "./delete-course.route";
+import {saveLesson} from "./save-lesson.route";
 
 const bodyParser = require('body-parser');
 
@@ -29,6 +30,8 @@ app.route('/api/search-lessons').get(searchLessons);
 app.route('/api/courses/:id').put(saveCourse);
 
 app.route('/api/courses/:id').delete(deleteCourse);
+
+app.route('/api/lessons/:id').put(saveLesson);
 
 app.route('/api/login').post(loginUser);
 
