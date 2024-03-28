@@ -1,5 +1,6 @@
-import {Component, effect, ElementRef, inject, viewChild} from '@angular/core';
+import {Component, ElementRef, inject, signal, viewChild} from '@angular/core';
 import {LessonsService} from "../services/lessons.service";
+import {Lesson} from "../models/lesson.model";
 
 @Component({
   selector: 'lessons',
@@ -14,11 +15,15 @@ export class LessonsComponent {
 
   search = viewChild.required<ElementRef>('search');
 
+  lessons = signal<Lesson[]>([]);
+
   async onSearch() {
 
     const query = this.search().nativeElement.value;
 
-    console.log(`search query: ${query}`);
+    const results = await this.lessonsService.searchLessons(query);
+
+    this.lessons.set(results);
 
   }
 

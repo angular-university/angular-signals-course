@@ -1,19 +1,44 @@
-
 <div class="lessons">
 
-  <h3>Search lessons</h3>
+  <div class="header">
 
-  <div class="form-control search-controls">
+    <h1>Search Lessons</h1>
 
-    <input placeholder="Search for a lesson"
-           (keyup.enter)="onSearch()" #search>
+    <div class="form-control search-controls">
 
-    <button class="btn search" (click)="onSearch()">
-      Search
-    </button>
+      <input placeholder="Search for a lesson"
+             (keyup.enter)="onSearch()" #search>
+
+      <button class="btn search" (click)="onSearch()">
+        Search
+      </button>
+
+    </div>
 
   </div>
 
+  @if(lessons().length > 0) {
+
+    <div class="table-container">
+
+      <table class="results-table">
+
+        @for (lesson of lessons(); track lesson.id) {
+          <tr>
+            <td>
+              {{ lesson.description }}
+            </td>
+            <td>
+              {{ lesson.duration }}
+            </td>
+          </tr>
+        }
+
+      </table>
+
+    </div>
+
+  }
 
 </div>
 

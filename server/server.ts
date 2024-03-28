@@ -24,7 +24,7 @@ app.route('/api/courses').post(createCourse);
 
 app.route('/api/courses/:id').get(getCourseById);
 
-app.route('/api/lessons').get(searchLessons);
+app.route('/api/search-lessons').get(searchLessons);
 
 app.route('/api/courses/:id').put(saveCourse);
 
