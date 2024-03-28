@@ -52,8 +52,7 @@ export class EditCourseDialogComponent {
 
     if (this.data?.mode == 'create') {
       await this.createCourse(courseProps);
-    }
-    else if (this.data?.mode == 'update') {
+    } else if (this.data?.mode == 'update') {
       await this.saveCourse(this.data.course!.id, courseProps);
     }
 
@@ -62,10 +61,8 @@ export class EditCourseDialogComponent {
   async createCourse(course: Partial<Course>) {
     try {
       const newCourse = await this.coursesService.createCourse(course);
-      this.data.dialogOutput.set(newCourse);
-      this.dialogRef.close();
-    }
-    catch (err) {
+      this.dialogRef.close(newCourse);
+    } catch (err) {
       console.error(err);
       alert(`Failed to create course!`);
     }
@@ -73,11 +70,9 @@ export class EditCourseDialogComponent {
 
   async saveCourse(courseId: string, changes: Partial<Course>) {
     try {
-      const course = await this.coursesService.saveCourse(courseId, changes);
-      this.data.dialogOutput.set(course);
-      this.dialogRef.close();
-    }
-    catch (err) {
+      const updatedCourse = await this.coursesService.saveCourse(courseId, changes);
+      this.dialogRef.close(updatedCourse);
+    } catch (err) {
       console.error(err);
       alert(`Failed to save course!`);
     }

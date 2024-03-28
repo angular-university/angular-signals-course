@@ -9,7 +9,7 @@ import {LoadingService} from "./loading.service";
   imports: [MatProgressSpinner],
   standalone: true,
 })
-export class LoadingIndicatorComponent  {
+export class LoadingIndicatorComponent {
 
   loading: Signal<boolean>;
 

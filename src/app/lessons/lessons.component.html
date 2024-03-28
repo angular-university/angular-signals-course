@@ -1,6 +1,6 @@
 <div class="lessons">
 
-  @if(mode() == 'search') {
+  @if (mode() == 'search') {
     <div class="header">
 
       <h1>Search Lessons</h1>
@@ -18,7 +18,7 @@
 
     </div>
 
-    @if(lessons().length > 0) {
+    @if (lessons().length > 0) {
 
       <div class="table-container">
 
@@ -42,7 +42,7 @@
     }
   }
 
-  @if(mode() == 'detail') {
+  @if (mode() == 'detail') {
     <lesson-detail
       [lesson]="selectedLesson()"
       (lessonUpdated)="onLessonUpdated($event)"

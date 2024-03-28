@@ -25,7 +25,7 @@ export class LessonDetailComponent {
 
   cancel = output();
 
-  async onSave(description:string) {
+  async onSave(description: string) {
 
     try {
 
@@ -35,8 +35,7 @@ export class LessonDetailComponent {
 
       this.lessonUpdated.emit(updatedLesson);
 
-    }
-    catch (err) {
+    } catch (err) {
       console.error(err);
       this.messagesService.showMessage('Error saving lesson!', 'error');
     }

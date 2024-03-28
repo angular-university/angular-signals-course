@@ -3,7 +3,7 @@ import {User} from "../models/user.model";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
 
-const USER_STORAGE_KEY='user';
+const USER_STORAGE_KEY = 'user';
 
 @Injectable({
   providedIn: 'root'
@@ -37,13 +37,12 @@ export class AuthService {
       console.log(`Loaded user from storage.`);
       const user = JSON.parse(json) as User;
       this.#userSignal.set(user);
-    }
-    else {
+    } else {
       console.log(`No user found in storage.`);
     }
   }
 
-  async login(email:string, password:string): Promise<User> {
+  async login(email: string, password: string): Promise<User> {
 
     const response = await fetch(`${environment.apiRoot}/login`, {
       method: 'POST',

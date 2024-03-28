@@ -43,8 +43,7 @@ export class LoginComponent {
       await this.authService.login(email, password);
 
       await this.router.navigate(["/home"]);
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error);
       this.messagesService.showMessage("Login failed. Please try again.", "error");
     }

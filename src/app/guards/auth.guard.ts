@@ -6,14 +6,13 @@ import {inject} from "@angular/core";
 export const isUserAuthenticated: CanActivateFn =
   (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
 
-  const authService = inject(AuthService);
+    const authService = inject(AuthService);
 
-  const router = inject(Router);
+    const router = inject(Router);
 
-  if (authService.isLoggedIn()) {
-    return true;
+    if (authService.isLoggedIn()) {
+      return true;
+    } else {
+      return router.parseUrl("/login");
+    }
   }
-  else {
-    return router.parseUrl("/login");
-  }
-}

@@ -33,7 +33,7 @@ export class CoursesServiceWithFetch {
     return await response.json();
   }
 
-  async saveCourse(courseId:string, changes: Partial<Course>): Promise<Course> {
+  async saveCourse(courseId: string, changes: Partial<Course>): Promise<Course> {
 
     const response = await fetch(`${environment.apiRoot}/courses/${courseId}`, {
       method: 'PUT',

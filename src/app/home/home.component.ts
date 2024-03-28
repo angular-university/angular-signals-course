@@ -38,8 +38,6 @@ export class HomeComponent {
     return courses.filter(course => course.category == "ADVANCED");
   })
 
-  addCourseDialogOutput = signal<Course | null>(null);
-
   constructor() {
 
     this.loadCourses().then(() => console.log(`Courses loaded.`));
@@ -47,13 +45,6 @@ export class HomeComponent {
     effect(() => {
       console.log(`Beginner courses: `, this.beginnerCourses())
       console.log(`Advanced courses: `, this.advancedCourses())
-    });
-
-    effect(async () => {
-      const newCourse = this.addCourseDialogOutput();
-      if (newCourse) {
-        await this.loadCourses();
-      }
     });
 
   }
@@ -66,33 +57,32 @@ export class HomeComponent {
 
       this.#courses.set(courses.sort(sortCoursesBySeqNo));
 
-    }
-    catch(err) {
+    } catch (err) {
       this.messagesService.showMessage(`Error loading courses!`, 'error');
       console.error(err);
     }
 
   }
 
-  async onAddCourse() {
+  onAddCourse() {
 
     openEditCourseDialog(this.dialog, {
       mode: "create",
-      title: "Create New Course",
-      dialogOutput: this.addCourseDialogOutput
-    });
+      title: "Create New Course"
+    })
+      .afterClosed()
+      .subscribe(() => this.loadCourses());
 
   }
 
-  async onCourseDeleted(courseId:string) {
+  async onCourseDeleted(courseId: string) {
 
     try {
 
       await this.coursesService.deleteCourse(courseId);
 
       await this.loadCourses();
-    }
-    catch(err) {
+    } catch (err) {
       alert(`Error deleting course!`);
       console.error(err);
     }

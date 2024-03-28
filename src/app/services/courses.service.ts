@@ -37,7 +37,7 @@ export class CoursesService {
     return await firstValueFrom(course$);
   }
 
-  async saveCourse(courseId:string, changes: Partial<Course>): Promise<Course> {
+  async saveCourse(courseId: string, changes: Partial<Course>): Promise<Course> {
 
     const course$ = this.http.put<Course>(`${this.env.apiRoot}/courses/${courseId}`, changes);
 

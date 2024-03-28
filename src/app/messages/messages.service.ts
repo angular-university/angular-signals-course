@@ -7,7 +7,7 @@ import {Message, MessageSeverity} from "../models/message.model";
 })
 export class MessagesService {
 
-  #messageSignal = signal<Message|null>(null);
+  #messageSignal = signal<Message | null>(null);
 
   message = this.#messageSignal.asReadonly();
 
