@@ -42,5 +42,11 @@
     }
   }
 
+  @if(mode() == 'detail') {
+    <lesson-detail
+      [(lesson)]="selectedLesson"
+      (cancel)="onCancel()"/>
+  }
+
 </div>
 

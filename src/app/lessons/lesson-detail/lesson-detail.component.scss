@@ -1,0 +1,17 @@
+@import "../../../styles/button";
+@import "../../../styles/forms";
+
+@include buttonStyles();
+@include formStyles();
+
+
+.lesson-detail {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-lesson {
+  border: 1px solid #2086fc;
+  border-radius: 5px;
+  padding: 20px;
+}
