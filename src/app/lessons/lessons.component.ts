@@ -17,6 +17,8 @@ export class LessonsComponent {
 
   lessons = signal<Lesson[]>([]);
 
+  mode = signal<'search' | 'detail'>('search');
+
   async onSearch() {
 
     const query = this.search().nativeElement.value;
@@ -27,4 +29,9 @@ export class LessonsComponent {
 
   }
 
+  onDetailSelected(lesson: Lesson) {
+
+    this.mode.set('detail');
+
+  }
 }

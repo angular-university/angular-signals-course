@@ -24,7 +24,7 @@
       <table class="results-table">
 
         @for (lesson of lessons(); track lesson.id) {
-          <tr>
+          <tr (click)="onDetailSelected(lesson)">
             <td>
               {{ lesson.description }}
             </td>
