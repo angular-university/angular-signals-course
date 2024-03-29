@@ -1,17 +1,20 @@
-import {Component, inject} from '@angular/core';
+import {Component, effect, inject, signal} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {Course} from "../models/course.model";
 import {EditCourseDialogData} from "./edit-course-dialog.data.model";
 import {CoursesService} from "../services/courses.service";
 import {LoadingIndicatorComponent} from "../loading/loading.component";
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {CourseCategoryComboboxComponent} from "../course-category-combobox/course-category-combobox.component";
+import {CourseCategory} from "../models/course-category.model";
 
 @Component({
   selector: 'edit-course-dialog',
   standalone: true,
   imports: [
     LoadingIndicatorComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CourseCategoryComboboxComponent
   ],
   templateUrl: './edit-course-dialog.component.html',
   styleUrl: './edit-course-dialog.component.scss'
@@ -33,6 +36,8 @@ export class EditCourseDialogComponent {
     iconUrl: ['']
   });
 
+  category = signal<CourseCategory>("BEGINNER") ;
+
   onCancel() {
     this.dialogRef.close();
   }
@@ -44,6 +49,10 @@ export class EditCourseDialogComponent {
       category: this.data.course?.category,
       iconUrl: this.data.course?.iconUrl
     });
+
+    effect(()  => {
+      console.log(`Course category bi-directional binding: ${this.category()}`);
+    })
   }
 
   async onSave() {

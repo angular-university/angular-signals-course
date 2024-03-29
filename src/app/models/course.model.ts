@@ -1,3 +1,5 @@
+import {CourseCategory} from "./course-category.model";
+
 export type Course = {
   id: string;
   title: string;
@@ -7,7 +9,7 @@ export type Course = {
   price: number;
   uploadedImageUrl: string;
   courseListIcon: string;
-  category: string;
+  category: CourseCategory;
   lessonsCount: number;
 }
 

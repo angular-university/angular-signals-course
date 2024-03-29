@@ -25,6 +25,10 @@
     </select>
   </div>
 
+  <p>Course category: {{category()}}</p>
+
+  <course-category-combobox label="Course category" [(value)]="category"/>
+
   <div class="form-control">
     <label>Course image:</label>
     <input placeholder="Enter course title"
