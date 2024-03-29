@@ -22,7 +22,9 @@ Start by doing a global installation of the Angular CLI:
 you can install the main branch using the following commands:
 
     git clone https://github.com/angular-university/angular-signals-course.git
+
     cd angular-signals-course
+
     npm install
 
 # What branches does this repository have?
