@@ -1,4 +1,4 @@
-import {Component, computed, effect, inject, signal} from '@angular/core';
+import {Component, computed, effect, inject, Injector, signal} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
@@ -6,6 +6,8 @@ import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.c
 import {MatDialog} from "@angular/material/dialog";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
 import {MessagesService} from "../messages/messages.service";
+import {catchError, from, throwError} from "rxjs";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'home',
@@ -23,6 +25,8 @@ export class HomeComponent {
   coursesService = inject(CoursesService);
 
   messagesService = inject(MessagesService);
+
+  injector = inject(Injector);
 
   dialog = inject(MatDialog);
 
@@ -88,5 +92,36 @@ export class HomeComponent {
     }
 
   }
+
+  triggerToSignal() {
+
+    const obs$ = from(this.coursesService.loadAllCourses())
+      .pipe(
+        catchError(err => {
+          console.log(`catchError(): `, err);
+          throw err;
+        })
+      );
+
+    const courses = toSignal(obs$, {
+      initialValue: [],
+      injector: this.injector,
+      rejectErrors: true
+    });
+
+    effect(() => {
+        try {
+          console.log(`Courses loaded via toSignal(): `, courses());
+        }
+        catch (err) {
+          console.log(`Error caught reading courses signal: `, err);
+        }
+      },
+      {
+        injector: this.injector
+      })
+
+  }
+
 
 }
