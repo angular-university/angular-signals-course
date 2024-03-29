@@ -7,7 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
 import {MessagesService} from "../messages/messages.service";
 import {catchError, from, throwError} from "rxjs";
-import {toSignal} from "@angular/core/rxjs-interop";
+import {toObservable, toSignal, outputToObservable, outputFromObservable} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'home',
@@ -31,6 +31,8 @@ export class HomeComponent {
   dialog = inject(MatDialog);
 
   #courses = signal<Course[]>([]);
+
+  courses$ = toObservable(this.#courses);
 
   beginnerCourses = computed(() => {
     const courses = this.#courses();
