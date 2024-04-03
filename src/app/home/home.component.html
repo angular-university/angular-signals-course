@@ -2,31 +2,20 @@
 
   <h3>All Courses</h3>
 
-  <button class="btn" (click)="onAddCourse()">
+  <button class="btn">
     Add Course
-  </button>
-
-  <button class="btn" (click)="triggerToSignal()">
-    Trigger toSignal()
   </button>
 
   <mat-tab-group>
 
     <mat-tab label="Beginners">
 
-      <courses-card-list
-        [courses]="beginnerCourses()"
-        (courseUpdated)="loadCourses()"
-        (courseDeleted)="onCourseDeleted($event)"/>
+
 
     </mat-tab>
 
     <mat-tab label="Advanced">
 
-      <courses-card-list
-        [courses]="advancedCourses()"
-        (courseUpdated)="loadCourses()"
-        (courseDeleted)="onCourseDeleted($event)"/>
 
     </mat-tab>
 

@@ -11,12 +11,6 @@ import {LoadingService} from "./loading.service";
 })
 export class LoadingIndicatorComponent {
 
-  loading: Signal<boolean>;
 
-  loadingService = inject(LoadingService);
-
-  constructor() {
-    this.loading = this.loadingService.loading;
-  }
 
 }
