@@ -1,9 +1,13 @@
 <div class="courses-panel">
 
-  <h3>All Courses</h3>
+  <h3>All Courses: {{counter()}}</h3>
 
   <button class="btn">
     Add Course
+  </button>
+
+  <button class="btn" (click)="increment()">
+    Increment
   </button>
 
   <mat-tab-group>
