@@ -21,10 +21,15 @@ import {toObservable, toSignal, outputToObservable, outputFromObservable} from "
 })
 export class HomeComponent {
 
-  counter = signal(0);
+  values = signal<number[]>([0]);
 
-  increment() {
-    this.counter.set(this.counter() + 1);
+  append() {
+
+    this.values.update(values => ([
+      ...values,
+      values[values.length - 1] + 1
+    ]))
+
   }
 
 }
