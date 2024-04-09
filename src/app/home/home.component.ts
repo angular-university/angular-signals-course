@@ -21,38 +21,4 @@ import {toObservable, toSignal, outputToObservable, outputFromObservable} from "
 })
 export class HomeComponent {
 
- counter = signal(0);
-
- effectRef: EffectRef | null = null;
-
- constructor() {
-
-   this.effectRef = effect((onCleanup) => {
-
-     const counter = this.counter();
-
-     const timeout = setTimeout(() => {
-       console.log(
-         `counter value: ${counter}`);
-     }, 1000)
-
-     onCleanup(() => {
-       console.log(`Calling clean up`);
-       clearTimeout(timeout);
-     })
-
-   })
-
- }
-
-  increment() {
-
-    this.counter.update(val => val + 1);
-
-  }
-
-  cleanup() {
-    this.effectRef?.destroy();
-  }
-
 }
