@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {firstValueFrom} from "rxjs";
+import {firstValueFrom, Observable} from "rxjs";
 import {Course} from "../models/course.model";
 import {GetCoursesResponse} from "../models/get-courses.response";
 
@@ -11,6 +11,9 @@ import {GetCoursesResponse} from "../models/get-courses.response";
 })
 export class CoursesService {
 
+  async loadAllCourses():Promise<Course[]> {
 
+    return [];
+  }
 
 }
