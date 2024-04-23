@@ -11,13 +11,15 @@ export function getAllCourses(req: Request, res: Response) {
       return;
   */
 
-
+ console.log(`Called GET /api/courses`);
 
   setTimeout(() => {
 
+    console.log(`Returning GET /api/courses`);
+
     res.status(200).json({courses:Object.values(COURSES)});
 
-  }, 1500);
+  }, 300);
 
 
 }
