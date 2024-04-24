@@ -24,6 +24,26 @@ export class EditCourseDialogComponent {
 
   dialogRef = inject(MatDialogRef);
 
+  data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
+
+  fb = inject(FormBuilder);
+
+  form = this.fb.group({
+    title: [''],
+    longDescription: [''],
+    category: [''],
+    iconUrl: ['']
+  });
+
+  constructor() {
+    this.form.patchValue({
+      title: this.data?.course?.title,
+      longDescription: this.data?.course?.longDescription,
+      category: this.data?.course?.category,
+      iconUrl: this.data?.course?.iconUrl
+    });
+  }
+
   onClose() {
     this.dialogRef.close();
   }
