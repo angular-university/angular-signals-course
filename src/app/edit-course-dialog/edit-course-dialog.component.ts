@@ -21,5 +21,15 @@ import {CourseCategory} from "../models/course-category.model";
 })
 export class EditCourseDialogComponent {
 
+}
 
+export function openEditCourseDialog(
+  dialog: MatDialog,
+  data: EditCourseDialogData) {
+  const config = new MatDialogConfig();
+  config.disableClose = true;
+  config.autoFocus = true;
+  config.width  = "400px";
+  config.data = data;
+  return dialog.open(EditCourseDialogComponent, config);
 }
