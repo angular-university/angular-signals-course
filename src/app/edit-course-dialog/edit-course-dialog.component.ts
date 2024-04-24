@@ -54,7 +54,7 @@ export class EditCourseDialogComponent {
     const courseProps =
       this.form.value as Partial<Course>;
     if (this.data?.mode === "update") {
-      await this.saveCourse(this.data.course!.id, courseProps)
+      await this.saveCourse(this.data?.course!.id, courseProps);
     }
   }
 
@@ -64,11 +64,12 @@ export class EditCourseDialogComponent {
         await this.courseService.saveCourse(courseId, changes);
       this.dialogRef.close(updatedCourse);
     }
-    catch(err) {
+    catch (err) {
       console.error(err);
-      alert(`Failed to save the course!`);
+      alert(`Failed to save the course.`);
     }
   }
+
 
 }
 

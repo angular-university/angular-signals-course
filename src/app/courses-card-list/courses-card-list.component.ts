@@ -18,6 +18,8 @@ export class CoursesCardListComponent {
 
   courses = input.required<Course[]>();
 
+  courseUpdated = output<Course>();
+
   dialog = inject(MatDialog);
 
   async onEditCourse(course: Course) {
@@ -30,6 +32,7 @@ export class CoursesCardListComponent {
       }
     )
     console.log(`Course edited:`, newCourse);
+    this.courseUpdated.emit(newCourse);
   }
 
 }
