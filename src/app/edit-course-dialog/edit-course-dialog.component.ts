@@ -25,7 +25,7 @@ export class EditCourseDialogComponent {
   dialogRef = inject(MatDialogRef);
 
   onClose() {
-    this.dialogRef.close({title: "Hello World"});
+    this.dialogRef.close();
   }
 }
 
