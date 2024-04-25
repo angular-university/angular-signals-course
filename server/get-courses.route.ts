@@ -19,7 +19,7 @@ export function getAllCourses(req: Request, res: Response) {
 
     res.status(200).json({courses:Object.values(COURSES)});
 
-  }, 300);
+  }, 1000);
 
 
 }

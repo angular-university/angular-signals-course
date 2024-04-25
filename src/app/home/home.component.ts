@@ -9,6 +9,7 @@ import {catchError, from, Observable, throwError} from "rxjs";
 import {toObservable, toSignal, outputToObservable, outputFromObservable} from "@angular/core/rxjs-interop";
 import {CoursesServiceWithFetch} from "../services/courses-fetch.service";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
+import {LoadingService} from "../loading/loading.service";
 
 @Component({
   selector: 'home',
@@ -41,6 +42,8 @@ export class HomeComponent {
       course.category === "ADVANCED")
   });
 
+  loadingService = inject(LoadingService);
+
   constructor() {
 
     effect(() => {
@@ -54,6 +57,7 @@ export class HomeComponent {
 
   async loadCourses() {
     try {
+      this.loadingService.loadingOn();
       const courses = await this.coursesService.loadAllCourses();
       this.#courses.set(courses.sort(sortCoursesBySeqNo));
     }
@@ -61,7 +65,9 @@ export class HomeComponent {
       alert(`Error loading courses!`);
       console.error(err);
     }
-
+    finally {
+      this.loadingService.loadingOff();
+    }
   }
 
   onCourseUpdated(updatedCourse: Course) {
