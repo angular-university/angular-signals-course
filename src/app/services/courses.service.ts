@@ -1,9 +1,10 @@
 import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpContext} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {firstValueFrom, Observable} from "rxjs";
 import {Course} from "../models/course.model";
 import {GetCoursesResponse} from "../models/get-courses.response";
+import {SkipLoading} from "../loading/skip-loading.component";
 
 
 @Injectable({
