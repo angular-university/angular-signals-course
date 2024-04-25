@@ -42,7 +42,7 @@ export class HomeComponent {
       course.category === "ADVANCED")
   });
 
-  loadingService = inject(LoadingService);
+  messageService = inject(MessagesService);
 
   constructor() {
 
@@ -61,7 +61,10 @@ export class HomeComponent {
       this.#courses.set(courses.sort(sortCoursesBySeqNo));
     }
     catch(err) {
-      alert(`Error loading courses!`);
+      this.messageService.showMessage(
+        `Error loading courses!`,
+        "error"
+      );
       console.error(err);
     }
   }
