@@ -14,8 +14,8 @@ export class CourseCategoryComboboxComponent {
 
   value = model.required<CourseCategory>();
 
-  onCategoryChanged(category: CourseCategory) {
-    this.value.set(category);
+  onCategoryChanged(category: string) {
+    this.value.set(category as CourseCategory);
   }
 
 }
