@@ -29,4 +29,8 @@ export class AuthService {
     return user;
   }
 
+  logout() {
+    this.#userSignal.set(null);
+  }
+
 }
