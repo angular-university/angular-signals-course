@@ -1,6 +1,43 @@
 <div class="courses-panel">
 
-  <h3>All Courses:</h3>
+  <h3>Plain counter: {{counter}}</h3>
+
+  <h3>Interval counter: {{intervalCounter}}</h3>
+
+  <h3>Observable counter: {{counter$ | async}}</h3>
+
+
+  <button class="btn" (click)="increment()">
+    Increment Plain Counter
+  </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <button class="btn" (click)="onAddCourse()">
     Add Course

@@ -1,15 +1,16 @@
-import {afterNextRender, Component, computed, effect, EffectRef, inject, Injector, signal} from '@angular/core';
+import {afterNextRender, Component, computed, effect, EffectRef, inject, Injector, OnInit, signal} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MessagesService} from "../messages/messages.service";
-import {catchError, from, Observable, throwError} from "rxjs";
+import {catchError, from, interval, Observable, throwError} from "rxjs";
 import {toObservable, toSignal, outputToObservable, outputFromObservable} from "@angular/core/rxjs-interop";
 import {CoursesServiceWithFetch} from "../services/courses-fetch.service";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
 import {LoadingService} from "../loading/loading.service";
+import {AsyncPipe} from "@angular/common";
 
 @Component({
   selector: 'home',
@@ -17,12 +18,46 @@ import {LoadingService} from "../loading/loading.service";
   imports: [
     MatTabGroup,
     MatTab,
-    CoursesCardListComponent
+    CoursesCardListComponent,
+    AsyncPipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  counter = 0;
+
+  intervalCounter = 0;
+
+  counter$ = interval(1000);
+
+  ngOnInit() {
+    setInterval(() => {
+      this.intervalCounter++;
+    }, 1000);
+  }
+
+  increment() {
+    this.counter++;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   #courses = signal<Course[]>([]);
 
