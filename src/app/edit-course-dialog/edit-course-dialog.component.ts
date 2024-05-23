@@ -28,17 +28,33 @@ export class EditCourseDialogComponent {
 
   fb = inject(FormBuilder);
 
-  form = this.fb.group({
-    title: [''],
-    longDescription: [''],
-    iconUrl: ['']
-  });
-
   courseService = inject(CoursesService);
 
   category = signal<CourseCategory>("BEGINNER");
 
+
+
+
+
+
+
+  form = this.fb.group({
+    title: [''],
+    longDescription: [''],
+    iconUrl: ['']
+  })
+
   constructor() {
+
+    this.form.events.subscribe(console.log);
+
+
+
+
+
+
+
+
     this.form.patchValue({
       title: this.data?.course?.title,
       longDescription: this.data?.course?.longDescription,

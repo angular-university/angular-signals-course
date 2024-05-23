@@ -1,4 +1,15 @@
-import {afterNextRender, Component, computed, effect, EffectRef, inject, Injector, OnInit, signal} from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectorRef,
+  Component,
+  computed,
+  effect,
+  EffectRef,
+  inject,
+  Injector, NgZone,
+  OnInit,
+  signal
+} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
@@ -11,6 +22,7 @@ import {CoursesServiceWithFetch} from "../services/courses-fetch.service";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
 import {LoadingService} from "../loading/loading.service";
 import {AsyncPipe} from "@angular/common";
+import {CourseCardComponent} from "../course-card/course-card.component";
 
 @Component({
   selector: 'home',
@@ -19,7 +31,8 @@ import {AsyncPipe} from "@angular/common";
     MatTabGroup,
     MatTab,
     CoursesCardListComponent,
-    AsyncPipe
+    AsyncPipe,
+    CourseCardComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -28,13 +41,14 @@ export class HomeComponent implements OnInit {
 
   counter = 0;
 
-  intervalCounter = 0;
+  intervalCounter = signal(0);
 
   counter$ = interval(1000);
 
   ngOnInit() {
     setInterval(() => {
-      this.intervalCounter++;
+      this.intervalCounter
+        .update(counter => counter + 1)
     }, 1000);
   }
 

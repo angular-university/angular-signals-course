@@ -4,7 +4,23 @@ import {LoginComponent} from "./login/login.component";
 import {LessonsComponent} from "./lessons/lessons.component";
 import {isUserAuthenticated} from "./guards/auth.guard";
 
+
+
 export const routes: Routes = [
+  {
+    path: "lessons",
+    redirectTo: ({params,queryParams}) => {
+      return "/login"
+    }
+  },
+
+
+
+
+
+
+
+
   {
     path: '',
     component: HomeComponent,
@@ -13,10 +29,6 @@ export const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
-  },
-  {
-    path: "lessons",
-    component: LessonsComponent
   },
   {
     path: '**',
