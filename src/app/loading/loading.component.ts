@@ -16,20 +16,8 @@ export class LoadingIndicatorComponent {
 
   loadingService = inject(LoadingService);
 
-  router = inject(Router);
-
   constructor() {
     this.loading = this.loadingService.loading;
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        this.loadingService.loadingOn()
-      }
-      else if (event instanceof NavigationEnd ||
-        event instanceof NavigationCancel ||
-        event instanceof NavigationError) {
-        this.loadingService.loadingOff();
-      }
-    })
   }
 
 }

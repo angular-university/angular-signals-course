@@ -1,4 +1,5 @@
-import {Injectable, signal} from "@angular/core";
+import { inject, Injectable, signal} from "@angular/core";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -9,6 +10,9 @@ export class LoadingService {
 
   loading = this.#loadingSignal.asReadonly();
 
+  router = inject(Router);
+
+
   loadingOn() {
     this.#loadingSignal.set(true);
   }
@@ -16,4 +20,5 @@ export class LoadingService {
   loadingOff() {
     this.#loadingSignal.set(false);
   }
+
 }
