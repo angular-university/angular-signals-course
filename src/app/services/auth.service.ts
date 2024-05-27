@@ -2,7 +2,7 @@ import {computed, effect, inject, Injectable, signal} from "@angular/core";
 import {User} from "../models/user.model";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 
 const USER_STORAGE_KEY = 'user';
