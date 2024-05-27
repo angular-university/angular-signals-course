@@ -1,0 +1,24 @@
+.table-container {
+  border: 1px solid #2086fc;
+  border-radius: 5px;
+}
+
+.results-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  tr:last-child {
+    border-bottom: none;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+}
+
