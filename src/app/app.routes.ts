@@ -5,6 +5,7 @@ import {LessonsComponent} from "./lessons/lessons.component";
 import {isUserAuthenticated} from "./guards/auth.guard";
 import {CourseComponent} from "./course/course.component";
 import {courseResolver} from "./course/course.resolver";
+import {courseLessonsResolver} from "./course/course-lessons.resolver";
 
 export const routes: Routes = [
   {
@@ -17,7 +18,8 @@ export const routes: Routes = [
     component: CourseComponent,
     canActivate: [isUserAuthenticated],
     resolve: {
-      course: courseResolver
+      course: courseResolver,
+      lessons: courseLessonsResolver
     }
   },
   {
