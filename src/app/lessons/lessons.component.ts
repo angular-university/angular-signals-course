@@ -32,7 +32,7 @@ export class LessonsComponent {
 
     const query = this.search().nativeElement.value;
 
-    const results = await this.lessonsService.searchLessons(query);
+    const results = await this.lessonsService.loadLessons({query});
 
     this.lessons.set(results);
 

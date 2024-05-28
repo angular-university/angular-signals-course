@@ -10,5 +10,5 @@ export const courseLessonsResolver =
     return [];
   }
   const lessonsService = inject(LessonsService);
-  return lessonsService.loadCourseLessons(courseId);
+  return lessonsService.loadLessons({courseId})
 }
