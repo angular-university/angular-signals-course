@@ -882,7 +882,78 @@ export const LESSONS : any = {
     'seqNo': 9,
     courseId: 17,
     videoId: '8m5RrAtqlyw'
-  }
+  },
+
+  90: {
+    id: 90,
+    'description': 'Setting Up Your Development Environment',
+    'duration': '09:15',
+    'seqNo': 1,
+    courseId: 18
+  },
+  91: {
+    id: 91,
+    'description': 'Writing Your First Angular Signal',
+    'duration': '07:41',
+    'seqNo': 1,
+    courseId: 18
+  },
+  92: {
+    id: 92,
+    'description': 'Why Angular Signals? Main Benefits',
+    'duration': '04:55',
+    'seqNo': 1,
+    courseId: 18
+  },
+  93: {
+    id: 93,
+    'description': 'The Current State of Signal-Based Change Detection',
+    'duration': '08:08',
+    'seqNo': 1,
+    courseId: 18
+  },
+  94: {
+    id: 94,
+    'description': 'The Angular signals update API and Read-Only Signals',
+    'duration': '09:08',
+    'seqNo': 1,
+    courseId: 18
+  },
+  95: {
+    id: 95,
+    'description': 'Angular Signals and Immutability - Objects',
+    'duration': '05:55',
+    'seqNo': 1,
+    courseId: 18
+  },
+  96: {
+    id: 96,
+    'description': 'Angular Signals and Immutability - Arrays',
+    'duration': '05:59',
+    'seqNo': 1,
+    courseId: 18
+  },
+  97: {
+    id: 97,
+    'description': 'Angular Computed Signals - Everything You Need To Know',
+    'duration': '08:07',
+    'seqNo': 1,
+    courseId: 18
+  },
+  98: {
+    id: 98,
+    'description': 'Angular Signal Effects - Everything You Need To Know',
+    'duration': '06:36',
+    'seqNo': 1,
+    courseId: 18
+  },
+  99: {
+    id: 99,
+    'description': 'Angular Signal Effects - Setting The Injection Context',
+    'duration': '09:30',
+    'seqNo': 1,
+    courseId: 18
+  },
 
 };
 
