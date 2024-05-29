@@ -17,7 +17,7 @@
       <div class="table-container">
         <table class="results-table">
           @for(lesson of lessons(); track lesson.id) {
-            <tr>
+            <tr (click)="onLessonSelected(lesson)">
               <td>{{lesson.description}}</td>
               <td>{{lesson.duration}}</td>
             </tr>
@@ -27,7 +27,9 @@
     }
   }
   @else {
-
+    <lesson-detail
+      [lesson]="selectedLesson()"
+      (cancel)="onCancel()"/>
   }
 
 </div>

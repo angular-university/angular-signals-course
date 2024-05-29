@@ -21,9 +21,21 @@ export class LessonsComponent {
 
   searchInput = viewChild.required<ElementRef>('search');
 
-
-  onSearch() {
+  async onSearch() {
     const query = this.searchInput()?.nativeElement.value;
     console.log('search query', query);
+    const results =
+      await this.lessonsService.loadLessons({query});
+    this.lessons.set(results);
+
+  }
+
+  onLessonSelected(lesson: Lesson) {
+    this.mode.set("detail");
+    this.selectedLesson.set(lesson);
+  }
+
+  onCancel() {
+    this.mode.set("master");
   }
 }
