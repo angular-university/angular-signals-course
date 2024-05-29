@@ -22,4 +22,7 @@ export class LessonsComponent {
 
   lessonsService = inject(LessonsService);
 
+  onSearch() {
+
+  }
 }
