@@ -19,8 +19,25 @@ export class LessonDetailComponent {
   lessonUpdated = output<Lesson>();
   cancel = output();
 
+  lessonsService = inject(LessonsService);
+  messagesService = inject(MessagesService);
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  async onSave(description:string) {
+    try {
+      const lesson = this.lesson();
+      const updatedLesson =
+        await this.lessonsService.saveLesson(lesson!.id, {description});
+     this.lessonUpdated.emit(updatedLesson);
+    }
+    catch(err) {
+      console.error(err);
+      this.messagesService.showMessage(`
+      Error saving lesson!`, 'error')
+    }
+
   }
 }

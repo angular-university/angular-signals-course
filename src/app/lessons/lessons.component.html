@@ -29,7 +29,8 @@
   @else {
     <lesson-detail
       [lesson]="selectedLesson()"
-      (cancel)="onCancel()"/>
+      (cancel)="onCancel()"
+      (lessonUpdated)="onLessonUpdated($event)"/>
   }
 
 </div>
