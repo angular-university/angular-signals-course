@@ -1,4 +1,14 @@
-import {afterNextRender, Component, computed, effect, EffectRef, inject, Injector, signal} from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  computed,
+  effect,
+  EffectRef, ElementRef,
+  inject,
+  Injector,
+  signal,
+  viewChild
+} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
@@ -44,7 +54,13 @@ export class HomeComponent {
 
   messageService = inject(MessagesService);
 
+  beginnersList = viewChild<CoursesCardListComponent>("beginnersList");
+
   constructor() {
+
+    effect(() => {
+      console.log(`beginnersList: `, this.beginnersList())
+    })
 
     effect(() => {
       console.log(`Beginner courses: `, this.beginnerCourses())

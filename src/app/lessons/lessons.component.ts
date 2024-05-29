@@ -19,7 +19,7 @@ export class LessonsComponent {
   selectedLesson = signal<Lesson | null>(null);
   lessonsService = inject(LessonsService);
 
-  searchInput = viewChild<ElementRef>('search');
+  searchInput = viewChild.required<ElementRef>('search');
 
 
   onSearch() {
