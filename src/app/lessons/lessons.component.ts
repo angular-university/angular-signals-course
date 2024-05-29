@@ -14,7 +14,12 @@ import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
 })
 export class LessonsComponent {
 
+  mode = signal<'master' | 'detail'>("master");
 
+  lessons = signal<Lesson[]>([]);
 
+  selectedLesson = signal<Lesson | null>(null);
+
+  lessonsService = inject(LessonsService);
 
 }
