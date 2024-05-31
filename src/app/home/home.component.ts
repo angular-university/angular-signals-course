@@ -59,16 +59,16 @@ export class HomeComponent {
   constructor() {
 
     effect(() => {
-      //console.log(`beginnersList: `, this.beginnersList())
+      console.log(`beginnersList: `, this.beginnersList())
     })
 
     effect(() => {
-      //console.log(`Beginner courses: `, this.beginnerCourses())
-      //console.log(`Advanced courses: `, this.advancedCourses())
+      console.log(`Beginner courses: `, this.beginnerCourses())
+      console.log(`Advanced courses: `, this.advancedCourses())
     });
 
-    this.loadCourses();
-      //.then(() => console.log(`All courses loaded:`, this.#courses()));
+    this.loadCourses()
+      .then(() => console.log(`All courses loaded:`, this.#courses()));
   }
 
   async loadCourses() {
