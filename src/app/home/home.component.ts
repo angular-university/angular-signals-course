@@ -125,8 +125,6 @@ export class HomeComponent {
     this.#courses.set(newCourses);
   }
 
-  injector = inject(Injector);
-
   onToObservableExample() {
     const numbers = signal(0);
     numbers.set(1);
@@ -142,7 +140,30 @@ export class HomeComponent {
     numbers.set(5);
   }
 
+
+  injector = inject(Injector);
+
+  courses$ = from(this.coursesService.loadAllCourses());
+
+  onToSignalExample() {
+    const courses = toSignal(this.courses$, {
+      injector: this.injector
+    });
+    effect(() => {
+      console.log(`courses: `, courses());
+    },{
+      injector: this.injector
+    });
+
+
+  }
+
 }
+
+
+
+
+
 
 
 
