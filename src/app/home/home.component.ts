@@ -1,5 +1,5 @@
 import {
-  afterNextRender,
+  afterNextRender, ChangeDetectorRef,
   Component,
   computed,
   effect,
@@ -59,16 +59,16 @@ export class HomeComponent {
   constructor() {
 
     effect(() => {
-      console.log(`beginnersList: `, this.beginnersList())
+      //console.log(`beginnersList: `, this.beginnersList())
     })
 
     effect(() => {
-      console.log(`Beginner courses: `, this.beginnerCourses())
-      console.log(`Advanced courses: `, this.advancedCourses())
+      //console.log(`Beginner courses: `, this.beginnerCourses())
+      //console.log(`Advanced courses: `, this.advancedCourses())
     });
 
-    this.loadCourses()
-      .then(() => console.log(`All courses loaded:`, this.#courses()));
+    this.loadCourses();
+      //.then(() => console.log(`All courses loaded:`, this.#courses()));
   }
 
   async loadCourses() {
@@ -125,5 +125,29 @@ export class HomeComponent {
     this.#courses.set(newCourses);
   }
 
+  injector = inject(Injector);
+
+  onToObservableExample() {
+    const numbers = signal(0);
+    numbers.set(1);
+    numbers.set(2);
+    numbers.set(3);
+    const numbers$ = toObservable(numbers, {
+      injector: this.injector
+    });
+    numbers.set(4);
+    numbers$.subscribe(val => {
+      console.log(`numbers$: `, val)
+    })
+    numbers.set(5);
+  }
 
 }
+
+
+
+
+
+
+
+
