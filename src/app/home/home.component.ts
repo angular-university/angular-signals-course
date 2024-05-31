@@ -144,15 +144,33 @@ export class HomeComponent {
   injector = inject(Injector);
 
   onToSignalExample() {
-    const number$ = interval(1000);
-    const numbers = toSignal(number$, {
-      injector: this.injector
-    })
-    effect(() => {
-      console.log(`Numbers: `, numbers())
-    }, {
-      injector: this.injector
-    })
+    try {
+      const courses$ = from(this.coursesService.loadAllCourses())
+        .pipe(
+          catchError(err => {
+            console.log(`Error caught in catchError`, err)
+            throw err;
+          })
+        );
+      const courses = toSignal(courses$, {
+        injector: this.injector,
+        rejectErrors: true
+      })
+      effect(() => {
+        console.log(`Courses: `, courses())
+      }, {
+        injector: this.injector
+      })
+
+      setInterval(() => {
+        console.log(`Reading courses signal: `, courses())
+      }, 1000)
+
+    }
+    catch (err) {
+      console.log(`Error in catch block: `, err)
+    }
+
   }
 
 }
