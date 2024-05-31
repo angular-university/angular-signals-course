@@ -15,7 +15,7 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {CoursesCardListComponent} from "../courses-card-list/courses-card-list.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MessagesService} from "../messages/messages.service";
-import {catchError, from, Observable, throwError} from "rxjs";
+import {catchError, from, interval, Observable, startWith, throwError} from "rxjs";
 import {toObservable, toSignal, outputToObservable, outputFromObservable} from "@angular/core/rxjs-interop";
 import {CoursesServiceWithFetch} from "../services/courses-fetch.service";
 import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.component";
@@ -144,7 +144,7 @@ export class HomeComponent {
   injector = inject(Injector);
 
   onToSignalExample() {
-    const number$ = from([1,2,3,4,5]);
+    const number$ = interval(1000);
     const numbers = toSignal(number$, {
       injector: this.injector
     })
