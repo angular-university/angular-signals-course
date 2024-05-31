@@ -143,19 +143,16 @@ export class HomeComponent {
 
   injector = inject(Injector);
 
-  courses$ = from(this.coursesService.loadAllCourses());
-
   onToSignalExample() {
-    const courses = toSignal(this.courses$, {
+    const number$ = from([1,2,3,4,5]);
+    const numbers = toSignal(number$, {
       injector: this.injector
-    });
+    })
     effect(() => {
-      console.log(`courses: `, courses());
-    },{
+      console.log(`Numbers: `, numbers())
+    }, {
       injector: this.injector
-    });
-
-
+    })
   }
 
 }
