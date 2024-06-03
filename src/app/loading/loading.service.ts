@@ -6,8 +6,7 @@ import { Router } from "@angular/router";
 })
 export class LoadingService {
 
-  #loadingSignal = signal<boolean>(false);
-
+  #loadingSignal = signal(false);
   loading = this.#loadingSignal.asReadonly();
 
   router = inject(Router);

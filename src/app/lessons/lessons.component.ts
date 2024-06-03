@@ -14,44 +14,35 @@ import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
 })
 export class LessonsComponent {
 
+  mode = signal<'master' | 'detail'>("master");
+  lessons = signal<Lesson[]>([]);
+  selectedLesson = signal<Lesson | null>(null);
   lessonsService = inject(LessonsService);
 
-  search = viewChild.required<ElementRef>('search');
-
-  lessons = signal<Lesson[]>([]);
-
-  mode = signal<'search' | 'detail'>('search');
-
-  selectedLesson = signal<Lesson | null>(null);
-
-  constructor() {
-
-  }
+  searchInput = viewChild.required<ElementRef>('search');
 
   async onSearch() {
-
-    const query = this.search().nativeElement.value;
-
-    const results = await this.lessonsService.loadLessons({query});
-
+    const query = this.searchInput()?.nativeElement.value;
+    console.log('search query', query);
+    const results =
+      await this.lessonsService.loadLessons({query});
     this.lessons.set(results);
 
   }
 
-  onDetailSelected(lesson: Lesson) {
-    this.mode.set('detail');
+  onLessonSelected(lesson: Lesson) {
+    this.mode.set("detail");
     this.selectedLesson.set(lesson);
   }
 
   onCancel() {
-    this.mode.set('search');
-    this.selectedLesson.set(null);
+    this.mode.set("master");
   }
-
 
   onLessonUpdated(lesson: Lesson) {
-    this.lessons.update(lessons => lessons.map(l => l.id === lesson.id ? lesson : l));
-    this.mode.set('search');
-  }
+    this.lessons.update(lessons =>
+      lessons.map(l => l.id === lesson.id ? lesson : l)
+    );
 
+  }
 }

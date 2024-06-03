@@ -9,10 +9,13 @@ import {LoadingIndicatorComponent} from "./loading/loading.component";
 import {MessagesComponent} from "./messages/messages.component";
 import {AuthService} from "./services/auth.service";
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSidenavContainer, MatSidenav, MatNavList, MatListItem, MatIcon, RouterLink, MatToolbar, MatIconButton, LoadingIndicatorComponent, MessagesComponent],
+  imports: [
+    RouterOutlet, MatSidenavContainer, MatSidenav, MatNavList, MatListItem, MatIcon, RouterLink, MatToolbar,
+    MatIconButton, LoadingIndicatorComponent, MessagesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -22,8 +25,7 @@ export class AppComponent {
 
   isLoggedIn = this.authService.isLoggedIn;
 
-  logout() {
+  onLogout() {
     this.authService.logout();
   }
-
 }

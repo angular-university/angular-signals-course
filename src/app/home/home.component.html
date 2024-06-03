@@ -1,33 +1,33 @@
 <div class="courses-panel">
 
-  <h3>All Courses</h3>
+  <h3>All Courses:</h3>
 
   <button class="btn" (click)="onAddCourse()">
     Add Course
   </button>
 
-  <button class="btn" (click)="triggerToSignal()">
-    Trigger toSignal()
+  <button class="btn" (click)="onToObservableExample()">
+    toObservable()
+  </button>
+
+  <button class="btn" (click)="onToSignalExample()">
+    toSignal()
   </button>
 
   <mat-tab-group>
 
     <mat-tab label="Beginners">
-
-      <courses-card-list
-        [courses]="beginnerCourses()"
-        (courseUpdated)="loadCourses()"
-        (courseDeleted)="onCourseDeleted($event)"/>
-
+      <courses-card-list #beginnersList
+        (courseUpdated)="onCourseUpdated($event)"
+        (courseDeleted)="onCourseDeleted($event)"
+        [courses]="beginnerCourses()" />
     </mat-tab>
 
     <mat-tab label="Advanced">
-
       <courses-card-list
-        [courses]="advancedCourses()"
-        (courseUpdated)="loadCourses()"
-        (courseDeleted)="onCourseDeleted($event)"/>
-
+        (courseUpdated)="onCourseUpdated($event)"
+        (courseDeleted)="onCourseDeleted($event)"
+       [courses]="advancedCourses()"/>
     </mat-tab>
 
   </mat-tab-group>

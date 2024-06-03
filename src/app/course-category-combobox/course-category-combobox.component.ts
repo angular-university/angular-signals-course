@@ -17,4 +17,5 @@ export class CourseCategoryComboboxComponent {
   onCategoryChanged(category: string) {
     this.value.set(category as CourseCategory);
   }
+
 }

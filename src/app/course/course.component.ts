@@ -1,7 +1,7 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
-import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 import {Course} from "../models/course.model";
 import {Lesson} from "../models/lesson.model";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'course',
@@ -22,5 +22,4 @@ export class CourseComponent implements OnInit {
     this.course.set(this.route.snapshot.data["course"]);
     this.lessons.set(this.route.snapshot.data["lessons"]);
   }
-
 }

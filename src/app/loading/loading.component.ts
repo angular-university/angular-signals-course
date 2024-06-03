@@ -12,12 +12,8 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 })
 export class LoadingIndicatorComponent {
 
-  loading: Signal<boolean>;
-
   loadingService = inject(LoadingService);
 
-  constructor() {
-    this.loading = this.loadingService.loading;
-  }
+  loading = this.loadingService.loading;
 
 }

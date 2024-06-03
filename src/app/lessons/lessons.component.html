@@ -1,52 +1,36 @@
 <div class="lessons">
 
-  @if (mode() == 'search') {
+  @if (mode() == 'master') {
     <div class="header">
-
       <h1>Search Lessons</h1>
-
       <div class="form-control search-controls">
-
         <input placeholder="Search for a lesson"
-               (keyup.enter)="onSearch()" #search>
-
-        <button class="btn search" (click)="onSearch()">
+            (keyup.enter)="onSearch()" #search>
+        <button class="btn search"
+            (click)="onSearch()">
           Search
         </button>
-
       </div>
-
     </div>
 
     @if (lessons().length > 0) {
-
       <div class="table-container">
-
         <table class="results-table">
-
-          @for (lesson of lessons(); track lesson.id) {
-            <tr (click)="onDetailSelected(lesson)">
-              <td>
-                {{ lesson.description }}
-              </td>
-              <td>
-                {{ lesson.duration }}
-              </td>
+          @for(lesson of lessons(); track lesson.id) {
+            <tr (click)="onLessonSelected(lesson)">
+              <td>{{lesson.description}}</td>
+              <td>{{lesson.duration}}</td>
             </tr>
           }
-
         </table>
-
       </div>
-
     }
   }
-
-  @if (mode() == 'detail') {
+  @else {
     <lesson-detail
       [lesson]="selectedLesson()"
-      (lessonUpdated)="onLessonUpdated($event)"
-      (cancel)="onCancel()"/>
+      (cancel)="onCancel()"
+      (lessonUpdated)="onLessonUpdated($event)"/>
   }
 
 </div>

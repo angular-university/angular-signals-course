@@ -16,29 +16,36 @@ export class LessonsService {
   http = inject(HttpClient);
 
   async loadLessons(config: {
-    courseId?:string;
+    courseId?:string,
     query?:string;
-  })  {
+  }): Promise<Lesson[]> {
     const {courseId, query} = config;
     let params = new HttpParams();
-    if (query) {
-      params = params.set("query", query);
-    }
     if (courseId) {
       params = params.set("courseId", courseId);
     }
+    if (query) {
+      params = params.set("query", query);
+    }
     const lessons$ = this.http.get<GetLessonsResponse>(
-      `${this.env.apiRoot}/search-lessons`, {
+      `${this.env.apiRoot}/search-lessons`,
+      {
         params
-      });
+      }
+    )
     const response = await firstValueFrom(lessons$);
     return response.lessons;
   }
 
-  saveLesson(lessonId: string, changes: Partial<Lesson>): Promise<Lesson> {
-    return firstValueFrom(this.http.put<Lesson>(
-      `${this.env.apiRoot}/lessons/${lessonId}`, changes
-    ));
+  async saveLesson(
+    lessonId:string,
+    changes:Partial<Lesson>): Promise<Lesson> {
+    const saveLesson$ = this.http.put<Lesson>(
+      `${this.env.apiRoot}/lessons/${lessonId}`,
+      changes
+    )
+    return firstValueFrom(saveLesson$);
   }
+
 
 }

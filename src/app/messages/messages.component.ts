@@ -20,5 +20,4 @@ export class MessagesComponent {
   onClose() {
     this.messagesService.clear();
   }
-
 }

@@ -2,37 +2,30 @@
 
 <div class="edit-course-form" [formGroup]="form">
 
-  <h3>{{ data.title }}</h3>
+  <h3>{{data.title}}</h3>
 
   <div class="form-control">
     <label>Course title:</label>
-    <input placeholder="Enter course title" [value]="data.course?.title" formControlName="title">
+    <input placeholder="Enter course title"
+           formControlName="title">
   </div>
 
   <div class="form-control">
     <label>Course description:</label>
     <textarea placeholder="Enter course description"
-              [value]="data.course?.longDescription" formControlName="longDescription">
+      formControlName="longDescription">
     </textarea>
   </div>
 
-  <div class="form-control">
-    <label>Course category:</label>
-    <select [value]="data.course?.category" formControlName="category">
-      <option value="BEGINNER">Beginners</option>
-      <option value="INTERMEDIATE">Intermediate</option>
-      <option value="ADVANCED">Advanced</option>
-    </select>
-  </div>
-
-  <p>Course category: {{category()}}</p>
-
-  <course-category-combobox label="Course category" [(value)]="category"/>
+  <course-category-combobox
+    label="Course category"
+    [(value)]="category"
+  />
 
   <div class="form-control">
     <label>Course image:</label>
     <input placeholder="Enter course title"
-           [value]="data.course?.iconUrl" formControlName="iconUrl">
+      formControlName="iconUrl">
   </div>
 
   <div class="form-actions">
@@ -41,7 +34,7 @@
       Save
     </button>
 
-    <button class="btn" (click)="onCancel()">
+    <button class="btn" (click)="onClose()">
       Cancel
     </button>
 
