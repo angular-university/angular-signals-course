@@ -23,7 +23,7 @@ export class HomeComponent {
 
   constructor() {
     this.loadCourses()
-      .then(() => console.log(`All courses loaded:`, this.courses()));
+      .then(() => console.log(`All courses loadeds:`, this.courses()));
   }
 
   async loadCourses() {
