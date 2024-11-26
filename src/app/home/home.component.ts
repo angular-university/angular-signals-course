@@ -9,15 +9,14 @@ import {catchError, from, throwError} from "rxjs";
 import {toObservable, toSignal, outputToObservable, outputFromObservable} from "@angular/core/rxjs-interop";
 
 @Component({
-  selector: 'home',
-  standalone: true,
-  imports: [
-    MatTabGroup,
-    MatTab,
-    CoursesCardListComponent
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'home',
+    imports: [
+        MatTabGroup,
+        MatTab,
+        CoursesCardListComponent
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 

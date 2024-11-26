@@ -4,13 +4,12 @@ import {Lesson} from "../models/lesson.model";
 import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
 
 @Component({
-  selector: 'lessons',
-  standalone: true,
-  imports: [
-    LessonDetailComponent
-  ],
-  templateUrl: './lessons.component.html',
-  styleUrl: './lessons.component.scss'
+    selector: 'lessons',
+    imports: [
+        LessonDetailComponent
+    ],
+    templateUrl: './lessons.component.html',
+    styleUrl: './lessons.component.scss'
 })
 export class LessonsComponent {
 

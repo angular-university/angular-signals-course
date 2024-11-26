@@ -5,13 +5,12 @@ import {LessonsService} from "../../services/lessons.service";
 import {MessagesService} from "../../messages/messages.service";
 
 @Component({
-  selector: 'lesson-detail',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule
-  ],
-  templateUrl: './lesson-detail.component.html',
-  styleUrl: './lesson-detail.component.scss'
+    selector: 'lesson-detail',
+    imports: [
+        ReactiveFormsModule
+    ],
+    templateUrl: './lesson-detail.component.html',
+    styleUrl: './lesson-detail.component.scss'
 })
 export class LessonDetailComponent {
 
