@@ -10,15 +10,14 @@ import {CourseCategory} from "../models/course-category.model";
 import {firstValueFrom} from "rxjs";
 
 @Component({
-  selector: 'edit-course-dialog',
-  standalone: true,
-  imports: [
-    LoadingIndicatorComponent,
-    ReactiveFormsModule,
-    CourseCategoryComboboxComponent
-  ],
-  templateUrl: './edit-course-dialog.component.html',
-  styleUrl: './edit-course-dialog.component.scss'
+    selector: 'edit-course-dialog',
+    imports: [
+        LoadingIndicatorComponent,
+        ReactiveFormsModule,
+        CourseCategoryComboboxComponent
+    ],
+    templateUrl: './edit-course-dialog.component.html',
+    styleUrl: './edit-course-dialog.component.scss'
 })
 export class EditCourseDialogComponent {
 

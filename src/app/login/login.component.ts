@@ -5,14 +5,13 @@ import {MessagesService} from "../messages/messages.service";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
-  selector: 'login',
-  standalone: true,
-  imports: [
-    RouterLink,
-    ReactiveFormsModule
-  ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'login',
+    imports: [
+        RouterLink,
+        ReactiveFormsModule
+    ],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 

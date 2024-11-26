@@ -22,15 +22,14 @@ import {openEditCourseDialog} from "../edit-course-dialog/edit-course-dialog.com
 import {LoadingService} from "../loading/loading.service";
 
 @Component({
-  selector: 'home',
-  standalone: true,
-  imports: [
-    MatTabGroup,
-    MatTab,
-    CoursesCardListComponent
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'home',
+    imports: [
+        MatTabGroup,
+        MatTab,
+        CoursesCardListComponent
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
