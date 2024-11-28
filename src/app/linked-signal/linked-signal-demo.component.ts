@@ -27,6 +27,8 @@ export class LinkedSignalDemoComponent {
 
   selectedCourse = signal<string | null>("BEGINNERS");
 
+  //quantity = signal(1);
+
   quantity = linkedSignal({
     source: this.selectedCourse,
     computation: (courseCode, previous) => this.courses.find(c => c.code === courseCode)?.defaultQuantity ?? 1
@@ -34,15 +36,15 @@ export class LinkedSignalDemoComponent {
 
   constructor() {
 
-    /*
+/*
     effect(() => {
         const course = this.selectedCourse();
         console.log(`selected course: ${course} effect triggered`)
-        this.quantity.set(1)
+        this.quantity.set(this.courses.find(c => c.code === course)?.defaultQuantity ?? 1)
       },
       {allowSignalWrites: true}
     );
-    */
+*/
 
 
 
