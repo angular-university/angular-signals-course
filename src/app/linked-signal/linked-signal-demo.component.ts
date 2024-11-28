@@ -1,4 +1,4 @@
-import {Component, signal} from "@angular/core";
+import {Component, effect, signal} from "@angular/core";
 
 
 @Component({
@@ -12,6 +12,16 @@ export class LinkedSignalDemoComponent {
 
   quantity = signal<number>(1);
 
+  constructor() {
+    effect(() => {
+        const course = this.selectedCourse();
+        console.log(`selected course: ${course} effect triggered`)
+        this.quantity.set(1)
+      },
+      {allowSignalWrites: true}
+    );
+  }
+
   onQuantityChanged(quantity: string) {
     this.quantity.set(parseInt(quantity));
   }
@@ -21,4 +31,7 @@ export class LinkedSignalDemoComponent {
 
   }
 
+  onCourseSelected(courseCode: string) {
+    this.selectedCourse.set(courseCode);
+  }
 }
