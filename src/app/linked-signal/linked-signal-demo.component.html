@@ -8,9 +8,9 @@
     <label>Select Course</label>
 
     <select [value]="selectedCourse()" (change)="onCourseSelected(course.value)" #course>
-      <option value="BEGINNERS">Angular For Beginners</option>
-      <option value="SIGNALS">Angular Signals In Depth</option>
-      <option value="SSR">Angular SSR In Depth</option>
+      @for (course of courses; track course.code) {
+        <option [value]="course.code">{{course.title}}</option>
+      }
     </select>
 
   </div>

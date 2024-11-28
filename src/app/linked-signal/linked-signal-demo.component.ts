@@ -1,5 +1,4 @@
-import {Component, effect, signal} from "@angular/core";
-
+import {Component, effect, linkedSignal, signal} from "@angular/core";
 
 @Component({
   selector: 'linked-signal-demo',
@@ -8,11 +7,34 @@ import {Component, effect, signal} from "@angular/core";
 })
 export class LinkedSignalDemoComponent {
 
+  courses = [
+    {
+      code: "BEGINNERS",
+      title: "Angular for Beginners",
+      defaultQuantity: 10
+    },
+    {
+      code: "SIGNALS",
+      title: "Angular Signals In Depth",
+      defaultQuantity: 20
+    },
+    {
+      code: "SSR",
+      title: "Angular SSR In Depth",
+      defaultQuantity: 30
+    }
+  ];
+
   selectedCourse = signal<string | null>("BEGINNERS");
 
-  quantity = signal<number>(1);
+  quantity = linkedSignal({
+    source: this.selectedCourse,
+    computation: (courseCode, previous) => this.courses.find(c => c.code === courseCode)?.defaultQuantity ?? 1
+  });
 
   constructor() {
+
+    /*
     effect(() => {
         const course = this.selectedCourse();
         console.log(`selected course: ${course} effect triggered`)
@@ -20,6 +42,10 @@ export class LinkedSignalDemoComponent {
       },
       {allowSignalWrites: true}
     );
+    */
+
+
+
   }
 
   onQuantityChanged(quantity: string) {
