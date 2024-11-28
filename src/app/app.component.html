@@ -14,6 +14,11 @@
         <span>Lessons</span>
       </a>
 
+      <a mat-list-item routerLink="/shopping-cart">
+        <mat-icon>search</mat-icon>
+        <span>Shopping Cart</span>
+      </a>
+
       @if(isLoggedIn()) {
         <a mat-list-item (click)="onLogout()">
           <mat-icon>exit_to_app</mat-icon>
