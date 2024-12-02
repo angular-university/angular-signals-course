@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withFetch(),
       withInterceptors([
-        loadingInterceptor
+        //loadingInterceptor
       ])
     )
   ]

@@ -1,5 +1,6 @@
 @import "../../styles/button";
 @import "../../styles/forms";
+@import "../../styles/table";
 
 @include buttonStyles();
 @include formStyles();
@@ -7,4 +8,20 @@
 .demo-container {
   max-width: 400px;
   margin: 0 auto;
+}
+
+.loading {
+  margin: 30px auto;
+}
+
+.course-header {
+  text-align: center;
+}
+
+.course-image {
+  max-height: 200px;
+}
+
+.table-container {
+  margin-top: 20px;
 }

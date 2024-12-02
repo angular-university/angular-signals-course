@@ -5,5 +5,33 @@
 
   <h1>resource() Demo</h1>
 
+  @if(courses.isLoading()) {
+    <mat-spinner class="loading"/>
+  }
+  @else {
+    <div class="table-container">
+      <table class="results-table">
+        @for(course of courses.value(); track course.id) {
+          <tr>
+            <td>
+              {{course.title}}
+            </td>
+          </tr>
+        }
+      </table>
+    </div>
+  }
+
+
+  <!--div class="course-header">
+
+    @let course = course.value()
+
+    <h2>{{ course?.title }}</h2>
+
+    <img class="course-image" [src]="course()?.iconUrl">
+
+  </div-->
+
 
 </div>
