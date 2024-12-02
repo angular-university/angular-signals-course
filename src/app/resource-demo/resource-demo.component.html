@@ -5,6 +5,22 @@
 
   <h1>resource() Demo</h1>
 
+  <div class="course-header">
+
+    <div class="form-control">
+      <input placeholder="Enter course id" (keydown.enter)="onCourseIdSelected(input.value)" #input>
+    </div>
+
+  @let crs = course.value();
+
+  <h2>{{ crs?.title }}</h2>
+
+  <img class="course-image" [src]="crs?.iconUrl">
+
+
+</div>
+
+
   @if(courses.isLoading()) {
     <mat-spinner class="loading"/>
   }
@@ -34,18 +50,5 @@
       Reset Courses
     </button>
   }
-
-
-
-  <!--div class="course-header">
-
-    @let course = course.value()
-
-    <h2>{{ course?.title }}</h2>
-
-    <img class="course-image" [src]="course()?.iconUrl">
-
-  </div-->
-
 
 </div>

@@ -14,7 +14,7 @@ export class ResourceDemoComponent {
 
   coursesService = inject(CoursesService);
 
-  courseId = signal<string | null>(null);
+  courseId = signal<string>('');
 
   courses = resource<Course[], unknown>({
     loader: async () => {
@@ -22,18 +22,17 @@ export class ResourceDemoComponent {
     }
   })
 
-  /*
-  course = resource({
-    loader: async (params) => {
-      const response = await fetch(`/api/courses/${params.request?.courseId}`);
-      return await response.json();
+  course = resource<Course, { courseId:string}>({
+    request: () => ({
+      courseId: this.courseId()
+    }),
+    loader: async ({request}) => {
+      console.log("Loader request: ", request);
+      return await this.coursesService.getCourseById(request.courseId);
     }
   })
 
-  */
-
   constructor() {
-
     effect(() => {
       console.log("Courses: ", this.courses.value());
       console.log("Loading:", this.courses.isLoading());
@@ -48,5 +47,10 @@ export class ResourceDemoComponent {
 
   resetCourses() {
     this.courses.set([]);
+  }
+
+  onCourseIdSelected(courseId: string) {
+    console.log("CourseId selected: ", courseId);
+    this.courseId.set(courseId);
   }
 }
