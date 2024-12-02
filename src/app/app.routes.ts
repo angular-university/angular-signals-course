@@ -7,6 +7,7 @@ import {CourseComponent} from "./course/course.component";
 import {courseResolver} from "./course/course.resolver";
 import {courseLessonsResolver} from "./course/course-lessons.resolver";
 import {LinkedSignalDemoComponent} from "./linked-signal/linked-signal-demo.component";
+import {ResourceDemoComponent} from "./resource-demo/resource-demo.component";
 
 export const routes: Routes = [
   {
@@ -34,6 +35,10 @@ export const routes: Routes = [
   {
     path:"shopping-cart",
     component: LinkedSignalDemoComponent
+  },
+  {
+    path: "resource-demo",
+    component: ResourceDemoComponent
   },
   {
     path: '**',
