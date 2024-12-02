@@ -45,4 +45,8 @@ export class ResourceDemoComponent {
   reloadCourses() {
     this.courses.reload();
   }
+
+  resetCourses() {
+    this.courses.set([]);
+  }
 }

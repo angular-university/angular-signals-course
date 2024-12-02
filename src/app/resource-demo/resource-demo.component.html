@@ -18,13 +18,23 @@
             </td>
           </tr>
         }
+        @empty {
+          <div class="no-courses">
+            No courses found.
+          </div>
+        }
       </table>
     </div>
 
     <button class="btn reload-btn" (click)="reloadCourses()">
       Reload Courses
     </button>
+
+    <button class="btn" (click)="resetCourses()">
+      Reset Courses
+    </button>
   }
+
 
 
   <!--div class="course-header">
