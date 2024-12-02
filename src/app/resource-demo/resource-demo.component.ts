@@ -42,4 +42,7 @@ export class ResourceDemoComponent {
   }
 
 
+  reloadCourses() {
+    this.courses.reload();
+  }
 }
