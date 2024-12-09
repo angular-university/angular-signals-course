@@ -29,8 +29,6 @@ export class LinkedSignalDemoComponent {
 
   quantity = signal(1);
 
-
-
   constructor() {
 
   }
