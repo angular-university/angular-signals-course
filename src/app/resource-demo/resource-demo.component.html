@@ -8,46 +8,39 @@
   <div class="course-header">
 
     <div class="form-control">
-      <input placeholder="Enter course id" (keydown.enter)="onCourseIdSelected(input.value)" #input>
+      <input placeholder="Search lessons" (keydown.enter)="searchLessons(input.value)" #input>
     </div>
-
-  @let crs = course.value();
-
-  <h2>{{ crs?.title }}</h2>
-
-  <img class="course-image" [src]="crs?.iconUrl">
-
 
 </div>
 
 
-  @if(courses.isLoading()) {
+  @if(lessons.isLoading()) {
     <mat-spinner class="loading"/>
   }
   @else {
     <div class="table-container">
       <table class="results-table">
-        @for(course of courses.value(); track course.id) {
+        @for(lesson of lessons.value(); track lesson.id) {
           <tr>
             <td>
-              {{course.title}}
+              {{lesson.description}}
             </td>
           </tr>
         }
         @empty {
-          <div class="no-courses">
-            No courses found.
+          <div class="no-lessons">
+            No lessons found.
           </div>
         }
       </table>
     </div>
 
-    <button class="btn reload-btn" (click)="reloadCourses()">
-      Reload Courses
+    <button class="btn reload-btn" (click)="reload()">
+      Reload Lessons
     </button>
 
-    <button class="btn" (click)="resetCourses()">
-      Reset Courses
+    <button class="btn" (click)="reset()">
+      Reset Lessons
     </button>
   }
 

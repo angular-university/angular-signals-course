@@ -1,7 +1,7 @@
 import {Component, effect, inject, resource, signal} from "@angular/core";
-import {CoursesService} from "../services/courses.service";
-import {Course} from "../models/course.model";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {environment} from "../../environments/environment";
+import {Lesson} from "../models/lesson.model";
 
 
 @Component({
@@ -12,45 +12,42 @@ import {MatProgressSpinner} from "@angular/material/progress-spinner";
 })
 export class ResourceDemoComponent {
 
-  coursesService = inject(CoursesService);
+  env = environment;
 
-  courseId = signal<string>('');
+  search = signal<string>('');
 
-  courses = resource<Course[], unknown>({
-    loader: async () => {
-      return await this.coursesService.loadAllCourses()
-    }
-  })
-
-  course = resource<Course, { courseId:string}>({
+  lessons = resource<Lesson[], {search:string}>({
     request: () => ({
-      courseId: this.courseId()
+      search: this.search()
     }),
     loader: async ({request}) => {
-      console.log("Loader request: ", request);
-      return await this.coursesService.getCourseById(request.courseId);
+      const response = await fetch(`${this.env.apiRoot}/search-lessons?query=${request.search}&courseId=18`);
+      const json = await response.json();
+      return json.lessons;
     }
-  })
+  });
 
   constructor() {
+
     effect(() => {
-      console.log("Courses: ", this.courses.value());
-      console.log("Loading:", this.courses.isLoading());
+      console.log('searching lessons:', this.search() );
+    })
+
+    effect(() => {
+      console.log('lessons:', this.lessons.value() );
     })
 
   }
 
-
-  reloadCourses() {
-    this.courses.reload();
+  searchLessons(search: string) {
+    this.search.set(search);
   }
 
-  resetCourses() {
-    this.courses.set([]);
+  reset() {
+    this.lessons.set([]);
   }
 
-  onCourseIdSelected(courseId: string) {
-    console.log("CourseId selected: ", courseId);
-    this.courseId.set(courseId);
+  reload() {
+    this.lessons.reload();
   }
 }
