@@ -13,14 +13,9 @@
 
 </div>
 
-
-  @if(lessons.isLoading()) {
-    <mat-spinner class="loading"/>
-  }
-  @else {
     <div class="table-container">
       <table class="results-table">
-        @for(lesson of lessons.value(); track lesson.id) {
+        @for(lesson of lessons(); track lesson.id) {
           <tr>
             <td>
               {{lesson.description}}
@@ -42,6 +37,6 @@
     <button class="btn" (click)="reset()">
       Reset Lessons
     </button>
-  }
+
 
 </div>
