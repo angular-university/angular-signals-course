@@ -20,8 +20,8 @@ export class ResourceDemoComponent {
     request: () => ({
       search: this.search()
     }),
-    loader: async ({request}) => {
-      const response = await fetch(`${this.env.apiRoot}/search-lessons?query=${request.search}&courseId=18`);
+    loader: async ({request, abortSignal}) => {
+      const response = await fetch(`${this.env.apiRoot}/search-lessons?query=${request.search}&courseId=18`, {signal:abortSignal});
       const json = await response.json();
       return json.lessons;
     }
