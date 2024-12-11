@@ -27,7 +27,14 @@ export class LinkedSignalDemoComponent {
 
   selectedCourse = signal<string | null>("BEGINNERS");
 
-  quantity = signal(1);
+  quantity = linkedSignal({
+    source: () => ({courseCode: this.selectedCourse}),
+    computation: (source, previous) => {
+      console.log(`linkedSignal source: `, source.courseCode());
+      console.log(`linkedSignal previous: `, previous);
+      return this.courses.find(c => c.code === source.courseCode())?.defaultQuantity ?? 1
+    }
+  });
 
   constructor() {
 
