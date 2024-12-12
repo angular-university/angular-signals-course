@@ -8,27 +8,33 @@
   <div class="course-header">
 
     <div class="form-control">
-      <input placeholder="Search lessons" (keydown)="searchLessons(input.value)" #input>
+      <input placeholder="Search lessons"
+             (keydown)="searchLessons(input.value)" #input>
     </div>
 
 </div>
 
-    <div class="table-container">
-      <table class="results-table">
-        @for(lesson of lessons(); track lesson.id) {
-          <tr>
-            <td>
-              {{lesson.description}}
-            </td>
-          </tr>
-        }
-        @empty {
-          <div class="no-lessons">
-            No lessons found.
-          </div>
-        }
-      </table>
-    </div>
+    @if(lessons.isLoading()) {
+      <mat-spinner class="loading"/>
+    }
+    @else {
+      <div class="table-container">
+        <table class="results-table">
+          @for(lesson of lessons.value(); track lesson.id) {
+            <tr>
+              <td>
+                {{lesson.description}}
+              </td>
+            </tr>
+          }
+          @empty {
+            <div class="no-lessons">
+              No lessons found.
+            </div>
+          }
+        </table>
+      </div>
+    }
 
     <button class="btn reload-btn" (click)="reload()">
       Reload Lessons
