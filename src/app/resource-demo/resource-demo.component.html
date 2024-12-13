@@ -1,0 +1,45 @@
+
+
+
+<div class="demo-container">
+
+  <h1>resource() Demo</h1>
+
+  <div class="course-header">
+
+    <div class="form-control">
+      <input placeholder="Search lessons"
+             (keydown)="searchLessons(input.value)" #input>
+    </div>
+
+</div>
+
+
+      <div class="table-container">
+        <table class="results-table">
+          @for(lesson of lessons(); track lesson.id) {
+            <tr>
+              <td>
+                {{lesson.description}}
+              </td>
+            </tr>
+          }
+          @empty {
+            <div class="no-lessons">
+              No lessons found.
+            </div>
+          }
+        </table>
+      </div>
+
+
+    <button class="btn reload-btn" (click)="reload()">
+      Reload Lessons
+    </button>
+
+    <button class="btn" (click)="reset()">
+      Reset Lessons
+    </button>
+
+
+</div>

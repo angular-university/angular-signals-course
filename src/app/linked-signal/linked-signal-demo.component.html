@@ -1,0 +1,40 @@
+
+<div class="demo-container">
+
+  <h1>Shopping Cart</h1>
+
+  <div class="form-control">
+
+    <label>Select Course</label>
+
+    <select [value]="selectedCourse()" (change)="onCourseSelected(course.value)" #course>
+      @for (course of courses; track course.code) {
+        <option [value]="course.code">{{course.title}}</option>
+      }
+    </select>
+
+  </div>
+
+  <div class="form-control">
+
+    <label>Quantity</label>
+
+    <input type="number" [value]="quantity()" min="1" max="10"
+           (change)="onQuantityChanged(input.value)"
+           #input/>
+
+  </div>
+
+  <div class="form-actions">
+
+    <button class="btn" (click)="onArticleAdded()">
+      Add To Cart
+    </button>
+
+    <button class="btn">
+      Reset
+    </button>
+
+  </div>
+
+</div>
