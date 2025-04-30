@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   }
   async LoadCourses() {
     try {
-      const courses = await this.coursesService.LoadAllCourses();
+      const courses = await this.coursesService.LoadCourses();
       this.courses.set(courses);
       console.log(courses);
     } catch (err) {

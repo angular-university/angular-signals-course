@@ -9,11 +9,18 @@ import { GetCoursesResponse } from '../models/get-courses.response';
   providedIn: 'root',
 })
 export class CoursesService {
-  http=inject(HttpClient)
-  env=environment
-  async LoadAllCourses(): Promise<Course[]> {
+  // http=inject(HttpClient)
+  // env=environment
+  // async LoadAllCourses(): Promise<Course[]> {
+  //   const courses$ = this.http.get<GetCoursesResponse>(`${this.env.apiRoot}/courses`);
+  //   const response = await firstValueFrom(courses$);
+  //   return response.courses;
+  // }
+  http = inject(HttpClient)
+  env =environment
+  async LoadCourses():Promise<Course[]>{
     const courses$ = this.http.get<GetCoursesResponse>(`${this.env.apiRoot}/courses`);
     const response = await firstValueFrom(courses$);
-    return response.courses;
+    return response.courses
   }
 }
