@@ -23,4 +23,6 @@ export class CoursesService {
     const response = await firstValueFrom(courses$);
     return response.courses
   }
+
+  
 }
