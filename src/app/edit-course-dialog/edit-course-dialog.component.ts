@@ -13,6 +13,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CourseCategoryComboboxComponent } from '../course-category-combobox/course-category-combobox.component';
 import { CourseCategory } from '../models/course-category.model';
 import { firstValueFrom } from 'rxjs';
+import { saveCourse } from '../../../server/save-course.route';
 
 @Component({
   selector: 'edit-course-dialog',
@@ -26,9 +27,47 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './edit-course-dialog.component.scss',
 })
 export class EditCourseDialogComponent {
-  dialogRef=inject(MatDialogRef)
+  dialogRef = inject(MatDialogRef);
+  data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
+
+  fb = inject(FormBuilder);
+
+  form = this.fb.group({
+    title: [''],
+    longDescription: [''],
+    iconUrl: [''],
+    category: [''],
+  });
+  couseService = inject(CoursesService);
+  constructor() {
+    this.form.patchValue({
+      title: this.data?.course?.title,
+      longDescription: this.data?.course?.longDescription,
+      category: this.data?.course?.category,
+      iconUrl: this.data.course?.iconUrl,
+    });
+  }
+
   onClose() {
     this.dialogRef.close();
+  }
+  async onSave() {
+    const courseProps = this.form.value as Partial<Course>;
+    if (this.data?.mode === 'update') {
+      await this.saveCourse(
+        this.data?.course!.id,
+        courseProps
+      )
+    }
+  }
+  async saveCourse(courseId: string, changes: Partial<Course>) {
+    try {
+      const updatedCourse =await this.couseService.updateCourse(courseId, changes);
+      this.dialogRef.close(updatedCourse)
+    } catch (err) {
+      console.error(err);
+      alert(`Faild To Saved Course`);
+    }
   }
 }
 
