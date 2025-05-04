@@ -54,10 +54,7 @@ export class EditCourseDialogComponent {
   async onSave() {
     const courseProps = this.form.value as Partial<Course>;
     if (this.data?.mode === 'update') {
-      await this.saveCourse(
-        this.data?.course!.id,
-        courseProps
-      )
+      await this.saveCourse(this.data?.course!.id, courseProps);
     }
   }
   async saveCourse(courseId: string, changes: Partial<Course>) {
@@ -82,5 +79,5 @@ export async function openEditCourseDialog(
   config.data = data;
 
   const close$ = dialog.open(EditCourseDialogComponent, config).afterClosed();
-  firstValueFrom(close$);
+  return firstValueFrom(close$);
 }

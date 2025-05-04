@@ -16,10 +16,12 @@ export class CoursesCardListComponent {
   courses =input.required<Course[]>({
     alias:"data"
   });
-  constructor(){
+  courseUpdated = output<Course>();
+    constructor(){
   }
 dialog=inject(MatDialog)
   async onEdiCourse(course:Course) {
+    console.log(course)
     const newCourse = await openEditCourseDialog(
       this.dialog,
       {
@@ -28,7 +30,11 @@ dialog=inject(MatDialog)
        course
       }
     )
-    console.log('course edited: ',newCourse)
+    if(!newCourse){
+      return;
+    }
+    console.log('course edited: ',newCourse);
+    this.courseUpdated.emit(newCourse)
   }
 
 }
