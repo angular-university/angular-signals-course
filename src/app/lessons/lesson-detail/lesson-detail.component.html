@@ -4,19 +4,18 @@
 
   <div class="form-control edit-lesson">
     <label>Lesson title:</label>
-    <input placeholder="Enter course title"
-      [value]="lesson()?.description" #input>
+    <input placeholder="Enter course title">
   </div>
 
 </div>
 
 <div class="form-actions">
 
-  <button class="btn" (click)="onSave(input.value)">
+  <button class="btn" >
     Save
   </button>
 
-  <button class="btn" (click)="onCancel()">
+  <button class="btn">
     Cancel
   </button>
 

@@ -1,18 +1,17 @@
 <div class="login">
 
-  <div class="login-form" [formGroup]="form">
+  <div class="login-form">
 
     <h3>Login</h3>
 
     <div class="form-control">
       <label>Email:</label>
-      <input placeholder="Enter your email" formControlName="email">
+      <input placeholder="Enter your email">
     </div>
 
     <div class="form-control">
       <label>Password:</label>
-      <input type="password" formControlName="password"
-             placeholder="Enter your password">
+      <input type="password" placeholder="Enter your password">
     </div>
 
   </div>
@@ -20,7 +19,7 @@
   <div class="form-actions">
     <button class="btn" routerLink="/home">Home</button>
 
-    <button class="btn" (click)="onLogin()">
+    <button class="btn">
       Login
     </button>
 

@@ -1,10 +1,9 @@
 
 <div class="form-control">
 
-  <label>{{label()}}</label>
+  <label></label>
 
-  <select [value]="value()" #category
-    (change)="onCategoryChanged(category.value)">
+  <select  #category>
     <option value="BEGINNER">Beginners</option>
     <option value="INTERMEDIATE">Intermediate</option>
     <option value="ADVANCED">Advanced</option>

@@ -1,5 +1,4 @@
-export type MessageSeverity =
-  "error" | "warning" | "info" | "success";
+export type MessageSeverity = "error" | "warning" | "info" | "success";
 
 export type Message = {
   severity: MessageSeverity;
