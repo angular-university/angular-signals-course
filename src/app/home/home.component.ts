@@ -153,7 +153,8 @@ export class HomeComponent {
         );
       const courses = toSignal(courses$, {
         injector: this.injector,
-        rejectErrors: true
+        
+        
       })
       effect(() => {
         console.log(`Courses: `, courses())
