@@ -1,4 +1,4 @@
-## Hello aded by Baiju
+## Hello added by Baiju
 ##  Modern Angular With Signals Course
 
 This repository contains the code of the [Modern Angular With Signals Course](https://angular-university.io/course/angular-signals-course).
