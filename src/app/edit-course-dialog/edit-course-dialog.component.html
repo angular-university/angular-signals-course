@@ -1,23 +1,23 @@
-<loading/>
+<loading />
 
-<div class="edit-course-form">
+<div class="edit-course-form" [formGroup]="form">
 
-  <h3></h3>
+  <h3>{{ data.title }}</h3>
 
   <div class="form-control">
     <label>Course title:</label>
-    <input placeholder="Enter course title">
+    <input placeholder="Enter course title" formControlName="title">
   </div>
 
   <div class="form-control">
     <label>Course description:</label>
-    <textarea placeholder="Enter course description">
+    <textarea placeholder="Enter course description" formControlName="longDescription">
     </textarea>
   </div>
 
   <div class="form-control">
     <label>Course category:</label>
-    <select>
+    <select formControlName="category">
       <option value="BEGINNER">Beginners</option>
       <option value="INTERMEDIATE">Intermediate</option>
       <option value="ADVANCED">Advanced</option>
@@ -26,16 +26,16 @@
 
   <div class="form-control">
     <label>Course image:</label>
-    <input placeholder="Enter course title">
+    <input placeholder="Enter course title" formControlName="iconUrl">
   </div>
 
   <div class="form-actions">
 
-    <button class="btn">
+    <button class="btn" (click)="onSave()">
       Save
     </button>
 
-    <button class="btn">
+    <button class="btn" (click)="onClose()">
       Cancel
     </button>
 

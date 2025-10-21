@@ -16,4 +16,38 @@ export class CoursesServiceWithFetch {
     return payload.courses;
   }
 
+  async createCourse(course: Partial<Course>): Promise<Course> {
+
+    const response = await fetch(`${this.env.apiRoot}/courses`, {
+      method: 'POST',
+      headers: {
+        'Content-type': "application/json"
+      },
+      body: JSON.stringify(course)
+    })
+
+    return await response.json();
+
+  }
+
+  async saveCourse(courseId: string, changes: Partial<Course>): Promise<Course> {
+    const response = await fetch(`${this.env.apiRoot}/courses/${courseId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': "application/json"
+      },
+      body: JSON.stringify(changes)
+    })
+
+    return response.json();
+  }
+
+  async deleteCourse(courseId: string): Promise<void> {
+    const response = await fetch(`${this.env.apiRoot}/courses/${courseId}`, {
+      method: 'DELETE',
+    })
+
+    return response.json();
+  }
+
 }

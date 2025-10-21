@@ -7,49 +7,82 @@ import { MatDialog } from "@angular/material/dialog";
 import { MessagesService } from "../messages/messages.service";
 import { catchError, from, throwError } from "rxjs";
 import { toObservable, toSignal, outputToObservable, outputFromObservable } from "@angular/core/rxjs-interop";
-
-type Counter = {
-    value: number;
-}
+import { CoursesServiceWithFetch } from '../services/courses-fetch.service';
+import { openEditCourseDialog } from '../edit-course-dialog/edit-course-dialog.component';
 
 @Component({
-    selector: 'home',
-    imports: [
-        MatTabGroup,
-        MatTab,
-        CoursesCardListComponent
-    ],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss'
+	selector: 'home',
+	imports: [
+		MatTabGroup,
+		MatTab,
+		CoursesCardListComponent
+	],
+	templateUrl: './home.component.html',
+	styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
-    #courses = signal<Course[]>([]);
-    
-    beginnerCourses = computed(() => {
-        const courses = this.#courses();
-        return courses.filter(course => course.category === 'BEGINNER');
-    });
+	#courses = signal<Course[]>([]);
 
-    advancedCourses = computed(() => {
-        const courses = this.#courses();
-        return courses.filter(course => course.category === 'BEGINNER');
-    });
+	beginnerCourses = computed(() => {
+		const courses = this.#courses();
+		return courses.filter(course => course.category === 'BEGINNER');
+	});
+
+	advancedCourses = computed(() => {
+		const courses = this.#courses();
+		return courses.filter(course => course.category === 'ADVANCED');
+	});
 
 
-    private readonly coursesService = inject(CoursesService);
+	private readonly coursesService = inject(CoursesService);
+	dialog = inject(MatDialog);
 
-    constructor() {
-        this.loadCourses();
-    }
+	constructor() {
+		this.loadCourses();
+	}
 
-    async loadCourses() {
-        try {
-            const courses = await this.coursesService.loadAllCourses();
-            this.#courses.set(courses.sort(sortCoursesBySeqNo));
-        } catch (error) {
-            alert(`Error loading courses: ${error}`)
-        }
-    }
+	async loadCourses() {
+		try {
+			const courses = await this.coursesService.loadAllCourses();
+			this.#courses.set(courses.sort(sortCoursesBySeqNo));
+		} catch (error) {
+			alert(`Error loading courses: ${error}`)
+		}
+	}
+
+	onCourseUpdated(updatedCourse: Course) {
+		const courses = this.#courses();
+		const newCourses = courses.map(course => (
+			course.id === updatedCourse.id ? updatedCourse : course
+		));
+		this.#courses.set(newCourses);
+	}
+
+	async onCourseDeleted(courseId: string) {
+		try {
+			await this.coursesService.deleteCourse(courseId);
+			const courses = this.#courses();
+			const newCourses = courses.filter(course => course.id !== courseId);
+			this.#courses.set(newCourses);
+		} catch (error) {
+			console.log(error);
+			alert('Failed deleting the course.')
+
+		}
+	}
+
+	async onAddCourse() {
+		const newCourse = await openEditCourseDialog(
+			this.dialog,
+			{ mode: 'create', title: 'Creating new course' }
+		);
+
+		const newCourses = [
+			...this.#courses(),
+			newCourse
+		];
+		this.#courses.set(newCourses);
+	}
 
 }
