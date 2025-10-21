@@ -1,26 +1,19 @@
 <div class="courses-panel">
 
-  <h3>All Courses: {{ values().join(', ') }}</h3>
+  <h3>All Courses: </h3>
 
   <button class="btn">
     Add Course
   </button>
 
-  <button class="btn" (click)="append()">
-    Append
-  </button>
-
   <mat-tab-group>
 
     <mat-tab label="Beginners">
-
-
-
+      <courses-card-list [courses]="beginnerCourses()"/>
     </mat-tab>
 
     <mat-tab label="Advanced">
-
-
+      <courses-card-list [courses]="advancedCourses()"/>
     </mat-tab>
 
   </mat-tab-group>

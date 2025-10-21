@@ -1,0 +1,22 @@
+@for (course of courses(); track $index) {
+    <div class="course-card">
+        <div class="course-header">
+            <span class="course-title">
+                {{ course.title }}
+            </span>
+        </div>
+        <img [src]="course.iconUrl" class="course-image">
+        <div class="course-description">
+            <p> {{ course.longDescription }} </p>
+        </div>
+        <div class="course-actions">
+            <button class="btn">
+                VIEW COURSE
+            </button>
+            <button class="btn">
+                EDIT
+            </button>
+            <img src="/assets/icons/delete.svg" alt="" class="delete">
+        </div>
+    </div>
+}
