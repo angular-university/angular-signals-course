@@ -22,6 +22,7 @@ import {
 import { CoursesServiceWithFetch } from '../services/courses-fetch.service';
 import { openEditCourseDialog } from '../edit-course-dialog/edit-course-dialog.component';
 import { LoadingService } from '../loading/loading.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
 	selector: 'home',
@@ -43,7 +44,8 @@ export class HomeComponent {
 	});
 
 	private readonly coursesService = inject(CoursesService);
-	private readonly loadingService = inject(LoadingService);
+	private readonly messagesService = inject(MessagesService);
+
 	dialog = inject(MatDialog);
 
 	constructor() {
@@ -54,8 +56,11 @@ export class HomeComponent {
 		try {
 			const courses = await this.coursesService.loadAllCourses();
 			this.#courses.set(courses.sort(sortCoursesBySeqNo));
-		} catch (error) {
-			alert(`Error loading courses: ${error}`);
+		} catch (err) {
+			this.messagesService.showMessage(
+				`Error loading courses`,
+				'error'
+			)
 		}
 	}
 

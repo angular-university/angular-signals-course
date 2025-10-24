@@ -1,12 +1,17 @@
-import {Component, effect, inject, signal} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
-import {Course} from "../models/course.model";
-import {EditCourseDialogData} from "./edit-course-dialog.data.model";
-import {CoursesService} from "../services/courses.service";
-import {LoadingIndicatorComponent} from "../loading/loading.component";
-import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
-import {CourseCategoryComboboxComponent} from "../course-category-combobox/course-category-combobox.component";
-import {CourseCategory} from "../models/course-category.model";
+import { Component, effect, inject, signal } from '@angular/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { Course } from '../models/course.model';
+import { EditCourseDialogData } from './edit-course-dialog.data.model';
+import { CoursesService } from '../services/courses.service';
+import { LoadingIndicatorComponent } from '../loading/loading.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { CourseCategoryComboboxComponent } from '../course-category-combobox/course-category-combobox.component';
+import { CourseCategory } from '../models/course-category.model';
 import { firstValueFrom } from 'rxjs';
 import { CoursesServiceWithFetch } from '../services/courses-fetch.service';
 
@@ -16,13 +21,12 @@ import { CoursesServiceWithFetch } from '../services/courses-fetch.service';
   imports: [
     LoadingIndicatorComponent,
     ReactiveFormsModule,
-    CourseCategoryComboboxComponent
+    CourseCategoryComboboxComponent,
   ],
   templateUrl: './edit-course-dialog.component.html',
-  styleUrl: './edit-course-dialog.component.scss'
+  styleUrl: './edit-course-dialog.component.scss',
 })
 export class EditCourseDialogComponent {
-
   dialogRef = inject(MatDialogRef);
   data: EditCourseDialogData = inject(MAT_DIALOG_DATA);
   fb = inject(FormBuilder);
@@ -33,8 +37,8 @@ export class EditCourseDialogComponent {
     title: [''],
     longDescription: [''],
     category: [''],
-    iconUrl: ['']
-  })
+    iconUrl: [''],
+  });
 
   constructor() {
     this.form.patchValue({
@@ -42,7 +46,7 @@ export class EditCourseDialogComponent {
       longDescription: this.data.course?.longDescription,
       category: this.data.course?.category,
       iconUrl: this.data.course?.iconUrl,
-    })
+    });
   }
 
   onClose() {
@@ -52,7 +56,7 @@ export class EditCourseDialogComponent {
   async onSave() {
     const courseProps = this.form.value as Partial<Course>;
     if (this.data.mode === 'update') {
-      await this.saveCourse(this.data.course!.id, courseProps)
+      await this.saveCourse(this.data.course!.id, courseProps);
     } else if (this.data.mode === 'create') {
       await this.createCourse(courseProps);
     }
@@ -64,25 +68,28 @@ export class EditCourseDialogComponent {
       this.dialogRef.close(newCourse);
     } catch (error) {
       console.log(error);
-      alert('Error creating course.')
+      alert('Error creating course.');
     }
   }
 
   async saveCourse(courseId: string, changes: Partial<Course>) {
     try {
-      const updatedCourse = await this.coursesServiceWithFetch.saveCourse(courseId, changes);
+      const updatedCourse = await this.coursesServiceWithFetch.saveCourse(
+        courseId,
+        changes
+      );
       this.dialogRef.close(updatedCourse);
     } catch (error) {
       console.log(error);
-      alert('Failed to save the course.')
+      alert('Failed to save the course.');
     }
   }
-
-
-
 }
 
-export async function openEditCourseDialog(dialog: MatDialog, data: EditCourseDialogData) {
+export async function openEditCourseDialog(
+  dialog: MatDialog,
+  data: EditCourseDialogData
+) {
   const config = new MatDialogConfig();
   config.disableClose = true;
   config.autoFocus = true;
