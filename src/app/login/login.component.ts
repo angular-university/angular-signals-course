@@ -33,6 +33,8 @@ export class LoginComponent {
       } else {
         this.authService.login(email, password);
         this.router.navigateByUrl('/api/courses');
+        console.log('');
+        
       }
     } catch (error) {
       this.messagesService.showMessage(
