@@ -15,14 +15,13 @@
     </textarea>
   </div>
 
-  <div class="form-control">
-    <label>Course category:</label>
-    <select formControlName="category">
-      <option value="BEGINNER">Beginners</option>
-      <option value="INTERMEDIATE">Intermediate</option>
-      <option value="ADVANCED">Advanced</option>
-    </select>
-  </div>
+  <course-category-combobox
+    label="Course category"
+    [(value)]="category">
+    <div class="title" #title>
+      Course Categories
+    </div>
+  </course-category-combobox>
 
   <div class="form-control">
     <label>Course image:</label>

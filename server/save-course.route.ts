@@ -26,12 +26,6 @@ export function saveCourse(req: Request, res: Response) {
 
   console.log("new course version", newCourse);
 
-  setTimeout(() => {
-
-    res.status(200).json(COURSES[id]);
-
-  }, 1500);
-
-
+  res.status(200).json(COURSES[id]);
 
 }

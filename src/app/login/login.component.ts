@@ -14,8 +14,8 @@ export class LoginComponent {
   fb = inject(FormBuilder);
 
   form = this.fb.group({
-    email: [''],
-    password: [''],
+    email: ['test@angular-university.io'],
+    password: ['test'],
   });
 
   messagesService = inject(MessagesService);

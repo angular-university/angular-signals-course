@@ -21,6 +21,23 @@ export class AuthService {
 
   http = inject(HttpClient);
 
+  constructor() {
+    effect(() => {
+      const user = this.user();
+      if (user) {
+        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
+      }
+    })
+  }
+
+  loadUserFromStorage() {
+    const storagedUser = localStorage.getItem(USER_STORAGE_KEY);
+    if (storagedUser) {
+      const user = JSON.parse(storagedUser);
+      this.#userSignal.set(user);
+    }
+  }
+
   async login(email: string, password: string): Promise<User> {
     const login$ = this.http.post<User>(`${environment.apiRoot}/login`, {
       email, password
@@ -32,6 +49,7 @@ export class AuthService {
 
   async logout() {
     this.#userSignal.set(null);
+    localStorage.removeItem(USER_STORAGE_KEY);
     await this.router.navigateByUrl('/login');
   }
 

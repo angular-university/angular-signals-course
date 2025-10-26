@@ -1,5 +1,5 @@
 @for (course of courses(); track $index) {
-    <div class="course-card">
+    <div class="course-card" #courseCards>
         <div class="course-header">
             <span class="course-title">
                 {{ course.title }}
@@ -10,7 +10,7 @@
             <p> {{ course.longDescription }} </p>
         </div>
         <div class="course-actions">
-            <button class="btn">
+            <button class="btn" [routerLink]="['courses', course.id]">
                 VIEW COURSE
             </button>
             <button class="btn" (click)="onEditCourse(course)">

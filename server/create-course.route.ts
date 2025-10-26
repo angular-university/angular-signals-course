@@ -19,10 +19,8 @@ export function createCourse(req: Request, res: Response) {
 
   coursesKeyCounter += 1;
 
-  setTimeout(() => {
 
-    res.status(200).json(newCourse);
+  res.status(200).json(newCourse);
 
-  }, 1500);
 
 }

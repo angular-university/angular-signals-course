@@ -2,9 +2,11 @@ import {
 	Component,
 	computed,
 	effect,
+	ElementRef,
 	inject,
 	Injector,
 	signal,
+  viewChild,
 } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 import { Course, sortCoursesBySeqNo } from '../models/course.model';
@@ -31,6 +33,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 	styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+
+  beginnersList = viewChild('beginnersList', { read: ElementRef });
+  button = viewChild.required<ElementRef<HTMLButtonElement>>('button');
+  
 	#courses = signal<Course[]>([]);
 
 	beginnerCourses = computed(() => {
@@ -89,7 +95,7 @@ export class HomeComponent {
 			mode: 'create',
 			title: 'Creating new course',
 		});
-
+    if (!newCourse) return;
 		const newCourses = [...this.#courses(), newCourse];
 		this.#courses.set(newCourses);
 	}

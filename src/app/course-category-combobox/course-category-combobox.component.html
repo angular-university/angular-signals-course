@@ -1,12 +1,10 @@
-
 <div class="form-control">
+  <ng-content select=".title"></ng-content>
+  
 
-  <label></label>
-
-  <select  #category>
+  <select #category [value]="value()" (change)="onCategoryChange(category.value)">
     <option value="BEGINNER">Beginners</option>
     <option value="INTERMEDIATE">Intermediate</option>
     <option value="ADVANCED">Advanced</option>
   </select>
-
 </div>

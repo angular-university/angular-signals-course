@@ -12,11 +12,7 @@ export function deleteCourse(req: Request, res: Response) {
 
   delete COURSES[id];
 
-  setTimeout(() => {
-
-    res.status(200).json({id});
-
-  }, 1500);
+  res.status(200).json({id});
 
 }
 

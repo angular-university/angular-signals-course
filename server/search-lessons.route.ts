@@ -35,10 +35,6 @@ export function searchLessons(req: Request, res: Response) {
     );
     console.log(`Filtered ${filtered?.length} results`);
   }
-
   const lessons = filtered.slice(0, 10);
-
-  setTimeout(() => {
-    res.status(200).json({ lessons });
-  }, 1000);
+  res.status(200).json({ lessons });
 }

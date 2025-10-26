@@ -19,12 +19,6 @@ export function saveLesson(req: Request, res: Response) {
 
   console.log("new lesson version", newLesson);
 
-  setTimeout(() => {
-
-    res.status(200).json(LESSONS[id]);
-
-  }, 1500);
-
-
+  res.status(200).json(LESSONS[id]);
 
 }
