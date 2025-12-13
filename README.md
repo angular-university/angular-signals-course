@@ -1,11 +1,11 @@
-
+## Hello added by Baiju
 ##  Modern Angular With Signals Course
 
 This repository contains the code of the [Modern Angular With Signals Course](https://angular-university.io/course/angular-signals-course).
 
 This course repository is updated to Angular 21:
 
-![Modern Angular With Signals](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg)
+![Modern Angular With Signals]
 
 # Installation pre-requisites
 
