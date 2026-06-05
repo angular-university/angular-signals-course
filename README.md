@@ -3,13 +3,13 @@
 
 This repository contains the code of the [Modern Angular With Signals Course](https://angular-university.io/course/angular-signals-course).
 
-This course repository is updated to Angular 21:
+This course repository is updated to Angular 22:
 
 ![Modern Angular With Signals](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg)
 
 # Installation pre-requisites
 
-IMPORTANT: Please use Node 22 (Long Term Support version).
+IMPORTANT: Please use Node 24 (Long Term Support version).
 
 # Installing the Angular CLI
 

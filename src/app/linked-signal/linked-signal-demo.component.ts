@@ -1,8 +1,9 @@
-import {Component, effect, linkedSignal, signal} from "@angular/core";
+import {Component, effect, linkedSignal, signal, ChangeDetectionStrategy} from "@angular/core";
 
 @Component({
   selector: 'linked-signal-demo',
   templateUrl: './linked-signal-demo.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: "./linked-signal-demo.component.scss"
 })
 export class LinkedSignalDemoComponent {
