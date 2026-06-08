@@ -1,4 +1,4 @@
-import {Component, computed, effect, inject, Injector, signal, ChangeDetectionStrategy} from '@angular/core';
+import {Component, computed, effect, inject, Injector, signal} from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
@@ -16,7 +16,6 @@ import {toObservable, toSignal, outputToObservable, outputFromObservable} from "
         CoursesCardListComponent
     ],
     templateUrl: './home.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './home.component.scss'
 })
 export class HomeComponent {
