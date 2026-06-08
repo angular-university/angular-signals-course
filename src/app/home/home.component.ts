@@ -7,8 +7,7 @@ import {
   inject,
   Injector,
   signal,
-  viewChild,
-  ChangeDetectionStrategy
+  viewChild
 } from '@angular/core';
 import {CoursesService} from "../services/courses.service";
 import {Course, sortCoursesBySeqNo} from "../models/course.model";
@@ -30,7 +29,6 @@ import {LoadingService} from "../loading/loading.service";
         CoursesCardListComponent
     ],
     templateUrl: './home.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './home.component.scss'
 })
 export class HomeComponent {
