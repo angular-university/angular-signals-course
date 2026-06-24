@@ -1,8 +1,8 @@
-@import "../../styles/forms";
-@import "../../styles/button";
+@use "../../styles/button" as button;
+@use "../../styles/forms" as forms;
 
-@include formStyles();
-@include buttonStyles();
+@include button.buttonStyles();
+@include forms.formStyles();
 
 .login-form {
   display: flex;

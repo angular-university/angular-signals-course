@@ -1,6 +1,6 @@
-@import "../../styles/button";
+@use "../../styles/button" as button;
 
-@include buttonStyles();
+@include button.buttonStyles();
 
 .course-card {
   margin: 20px 10px;
